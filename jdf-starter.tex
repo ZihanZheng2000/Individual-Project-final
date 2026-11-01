@@ -163,7 +163,12 @@ The design addresses unclear recovery feedback through visible status and user c
 \clearpage
 
 \section{Evaluation Planning}
-\subsection{Process} Recruit 5--6 adult email users voluntarily from classmates/acquaintances for 15--20 minute facilitator-guided sessions using fictional messages, anonymous notes, think-aloud comments, and varied prototype order (ABC/BCA/CAB). Never access actual mailboxes or send real messages. \subsection{Tasks} A: respond to a missing-attachment warning; B: Undo a message sent to the wrong recipient while pending; C: decide whether a sent message is eligible for direct recall or requires recipient consent, then interpret an approval or decline. Record no-help/with-help/failure and erroneous actions separately for each different task. \subsection{Measures and analyses} After each design ask four five-point ratings: Q1 system-state clarity, Q2 next-action clarity, Q3 confidence, Q4 expected usefulness. Summarize median, range, distribution, and task-specific error/outcome counts. The preselected primary comparison is a Friedman repeated-measures test on Q1 across three designs, reporting statistic and p-value if enough complete matched responses exist; interpret cautiously. Group qualitative think-aloud and open comments by warning intrusiveness, countdown visibility, Undo/Recall understanding, trust, and new themes; report counts and paraphrases. Full script/questionnaire belongs in Appendix E.
+\subsection{Process}
+The first-round evaluation uses a Microsoft Forms survey titled \emph{Email Error Prevention and Recovery---Prototype Evaluation Survey}. Participants will be recruited voluntarily from classmates and acquaintances, including through a course survey-exchange discussion; approximately 5--6 completed responses are sought, without compensation. Each participant reviews all three low-fidelity storyboard prototypes in the fixed order A, B, and C. The questionnaire has 13 numbered questions across five sections and is estimated to take 5--10 minutes. It uses fictional email scenarios and does not require access to participants' mailboxes or sending actual messages. The published survey introduction explains the project and the review-and-response procedure. The form asks no direct identifying questions; whether platform settings collect identities must be checked before describing responses as anonymous.
+\subsection{Questions and measures}
+Section 1 asks email-sending frequency and whether the respondent has noticed a mistake after sending an email. For each prototype, participants review its images and answer one single-choice scenario question about expected behavior: A, a missing-attachment warning; B, the state of an email during a 30-second Undo Send delay; and C, direct-recall eligibility for an unopened email sent two minutes earlier. Each design also receives the same three five-point Likert statements about ease of understanding, perceived control, and usefulness, followed by an optional free-text improvement question. The final section asks which of the three features participants would want in their email application (multiple selections, including \emph{None of these}) and invites additional comments. The full 13-question instrument and response options are in Appendix~\ref{app:first-evaluation-questions}. The survey compares the three concepts with one another, not against the existing Outlook interface.
+\subsection{Analysis plan}
+For each prototype, report the count and percentage choosing the expected answer to its scenario question, together with other answer distributions. Summarize each Likert statement separately using response frequencies, median, and range; report the number selecting each feature in the multiple-selection question. Because the same participants rate all three designs, apply a Friedman repeated-measures test to the ease-of-understanding ratings for complete matched responses, reporting the statistic and $p$-value. Given the small convenience sample, interpret statistical results as exploratory rather than evidence of generalizable superiority. The three scenario questions test different behaviors, so their correctness rates are descriptive and are not treated as equivalent task-performance measures. Group free-text responses inductively into themes such as warning visibility, sending delay, recall conditions, control, and trust; count respondents mentioning each theme and summarize actionable suggestions without inventing quotes. The static storyboards and self-reported answers do not measure actual interactive task completion.
 
 \section{Evaluation Results}
 \subsection{Recruitment and execution}\textbf{TODO:} Insert actual participant count, recruitment, dates, participant characteristics, order and deviations from plan. \subsection{Quantitative findings}\textbf{TODO:} Insert real responses, outcomes, descriptive tables, Friedman statistic and p-value (or justified inability to test), and interpretation. \subsection{Qualitative findings}\textbf{TODO:} Insert coded participant comments, thematic counts, illustrative evidence and design implications. Insert de-identified raw results in Appendix F. No completed evaluation is claimed.
@@ -315,8 +320,44 @@ This new mechanism requires a cooperating mail service. Unsupported external mai
 Evaluate three fictional cases: two minutes/unopened, eight minutes/unopened, and two minutes/opened. Ask when consent is required and what waiting or refusal means. Probe five minutes exactly and unknown read status.
 \clearpage
 
-\section{First-Round Evaluation Script and Questions}
-Opening: explain fictional-email tasks, voluntary participation and de-identified notes. For each design ask what the participant expects and would do, then reveal the next storyboard state. After each, collect Q1 system-state clarity, Q2 next-action clarity, Q3 confidence and Q4 usefulness (1--5), and ask what was confusing or should change. At the end ask overall preference, intrusive aspects and trust concerns. Record assistance and task outcomes.
+\section{First-Round Evaluation Script and Questions}\label{app:first-evaluation-questions}
+\textbf{Survey title:} Email Error Prevention and Recovery --- Prototype Evaluation Survey.
+\textbf{Introduction (as published):} This survey is part of a Human-Computer Interaction (HCI) course project exploring ways to prevent email mistakes and improve recovery after sending an email. You will evaluate three low-fidelity email interface prototypes. For each prototype, please review the images, consider a short scenario, and answer questions about what you think would happen and how easy the design is to understand. The survey should take approximately 5--10 minutes.
+\subsection*{Section 1: Your Email Experience}
+Instruction: Please answer the question based on your own experience.
+\begin{enumerate}
+\item \textbf{How often do you send emails?} (Required; single choice) Multiple times a day; About once a day; About 1--3 times a week; Less than once a week.
+\item \textbf{Have you ever noticed a mistake after sending an email?} (Required; single choice) Yes; No; I'm not sure.
+\end{enumerate}
+\subsection*{Section 2: Prototype A --- Inline Pre-Send Error Detection}
+Instruction: Please review the images of Prototype A before answering the questions. This design highlights potential mistakes directly within an email draft, such as missing attachments, recipient mismatches, or potentially sensitive information. Users can review the warnings and decide whether to correct or ignore them. [Prototype A images appear in the form.]
+\begin{enumerate}\setcounter{enumi}{2}
+\item \textbf{You write ``Please see the attached file,'' but forget to attach anything. Based on this design, what would you expect to happen?} (Required; single choice) The system highlights the potential mistake and lets me review it.; The system automatically attaches a file.; The email cannot be sent.; I'm not sure.
+\item \textbf{Please rate the following statements about Prototype A.} (Required; Likert) See common Likert statements and scale below.
+\item \textbf{What would you improve about this design?} (Optional; single-line text)
+\end{enumerate}
+\subsection*{Section 3: Prototype B --- Configurable Undo Send}
+Instruction: Please review the images of Prototype B before answering the questions. This design lets users choose a 10-, 30-, or 60-second delay before an email is sent. During the countdown, users can click Undo to cancel the pending send and return to editing. [Prototype B images appear in the form.]
+\begin{enumerate}\setcounter{enumi}{5}
+\item \textbf{You select a 30-second Undo Send delay and click Send. What do you think happens next?} (Required; single choice) The email waits 30 seconds before being sent, and I can undo it during that time.; The email is delivered immediately, but I can remove it from the recipient's inbox within 30 seconds.; The email is saved as a draft and will not be sent automatically.; I'm not sure.
+\item \textbf{Please rate the following statements about Prototype B.} (Required; Likert) See common Likert statements and scale below.
+\item \textbf{What would you improve about this design?} (Optional; single-line text)
+\end{enumerate}
+\subsection*{Section 4: Prototype C --- Conditional Recall and Recipient Consent}
+Instruction: Please review the images of Prototype C before answering the questions. This design proposes a conditional email Recall feature. A message is eligible for direct recall only if it was sent within the last five minutes and has not been opened. Otherwise, the sender must request the recipient's approval. [Prototype C images appear in the form.]
+\begin{enumerate}\setcounter{enumi}{8}
+\item \textbf{You sent an email two minutes ago, and the recipient has not opened it. Based on this design, what would happen if you requested Recall?} (Required; single choice) The email is eligible for direct recall.; The recipient must approve the recall.; The email cannot be recalled.; I'm not sure.
+\item \textbf{Please rate the following statements about Prototype C.} (Required; Likert) See common Likert statements and scale below.
+\item \textbf{What would you improve about this design?} (Optional; single-line text)
+\end{enumerate}
+\subsection*{Section 5: Overall Feedback}
+Instruction: We are at the end of the survey! Thanks a lot!
+\begin{enumerate}\setcounter{enumi}{11}
+\item \textbf{Which of these features would you like to have in your email application?} (Required; multiple choice) A: Inline Pre-Send Error Detection; B: Configurable Undo Send; C: Conditional Recall and Recipient Consent; None of these.
+\item \textbf{Any comments are welcomed!} (Optional; single-line text)
+\end{enumerate}
+\textbf{Common Likert items for Q4, Q7, and Q10:} This design is easy to understand.; I would feel in control when using this design.; This feature would be useful in my email application. Five response levels: Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree. \emph{The shared items and response scale follow the questionnaire draft; verify the exact row and column labels in the live form before reporting results, since they were not included in the supplied final text export.}
+\textbf{Survey URL:} \url{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUREs2T01PWVBWMUZXS1FSSFNBNEI2Uk5KOS4u}
 
 \section{First-Round Evaluation Raw Results and Statistics}
 TODO: Insert real response-level ratings, task completion, errors, qualitative comments, thematic coding and statistical results.
