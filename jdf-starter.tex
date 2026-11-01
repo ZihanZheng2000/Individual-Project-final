@@ -121,8 +121,46 @@ In settings, the user chooses an Undo window, such as 10, 30, or 60 seconds. Aft
 
 After sending an email, the user opens Sent Items and selects a clearly labeled Recall action. A status panel explains whether the attempt is pending, succeeded, failed, or unverified, including relevant limitations. If Recall is unsuccessful or unavailable, a Send correction action opens an editable follow-up draft to the original recipients. The interface never claims that a delivered message has been removed without verification.
 
+\clearpage
 \section{Initial Prototyping}
-The three low-fidelity storyboards below show conceptual interactions, not verified Outlook functions. \subsection{A: Contextual attachment check} A draft mentioning a report leads to a warning and then a corrected draft; the rationale is error prevention with corrective action. \begin{figure}[htbp]\centering\input{Figures/prototype_a.tex}\caption{Prototype A: pre-send attachment check.}\end{figure} \subsection{B: Pending-send Undo} An incorrectly addressed email leads to a 30-second pending state and then a cancelled draft; the rationale is visible state and user control. \begin{figure}[htbp]\centering\input{Figures/prototype_b.tex}\caption{Prototype B: delayed Send and Undo.}\end{figure} \subsection{C: Transparent recovery} A delivered external email leads to an explanation of recall limitations and appropriate follow-up options; the rationale is clear feedback and recovery. \begin{figure}[htbp]\centering\input{Figures/prototype_c.tex}\caption{Prototype C: post-delivery recovery.}\end{figure} \textbf{TODO:} Add full frames/scripts in Appendix D.
+The storyboards illustrate untested low-fidelity concepts; colors distinguish warnings, actions, and recovery.
+
+\subsection{A: Inline Pre-Send Error Detection}
+Figure~\ref{fig:prototype-a} shows three independent sequences: a missing attachment, a single-name greeting with several recipients, and potentially sensitive text. Clicking an underline opens a suggestion; users can correct or ignore it. These checks respond to T1, T2, and T4 through contextual feedback, error prevention, and user control. Proposed optional on-device keyword and pattern rules avoid draft upload for this check. Their accuracy and privacy implications require evaluation; Appendix~\ref{app:lowfi} provides larger views and limitations.
+\begin{figure}[!ht]
+\centering
+\input{Figures/prototype_a.tex}
+\captionsetup{margin=0pt}
+\caption{Prototype A: three independent warning-and-correction sequences.}
+\label{fig:prototype-a}
+\end{figure}
+
+\clearpage
+\subsection{B: Configurable Undo Send}
+Needfinding showed that five of eleven respondents who tried Undo Send were too late. Prototype B makes the cancellation interval configurable and visible (Figure~\ref{fig:prototype-b}). Panel 1 offers 10, 30, or 60 seconds, with 30 seconds selected. After the user saves the setting and presses Send on a draft, panel 2 displays \enquote{Sending in 00:30}, explicitly identifies the message as pending, and offers Undo. Selecting Undo before expiry produces panel 3: an editable draft with the original recipient, content, and attachment preserved, plus a cancellation confirmation.
+
+The countdown and pending label apply visibility of system status. Returning the intact draft supports user control, freedom, and error recovery without requiring reconstruction of the message. If time expires, sending proceeds; the cancellation window closes. This pre-delivery action is distinct from a post-delivery Recall attempt. Evaluation should test whether participants notice the timer, understand that pending means undelivered, and can find Undo. Longer delays offer more recovery time but postpone ordinary delivery; settings discoverability and attention demands remain open questions.
+\begin{figure}[!ht]
+\centering
+\input{Figures/prototype_b.tex}
+\captionsetup{margin=0pt}
+\caption{Prototype B: select a duration, cancel a pending send, and return to a draft.}
+\label{fig:prototype-b}
+\end{figure}
+
+\clearpage
+\subsection{C: Conditional Recall and Recipient Consent}
+Figure~\ref{fig:prototype-c} refines the earlier recovery concept into a conditional Recall workflow. Within five minutes of delivery, an unopened message can be recalled directly. After five minutes, or once opened, removal requires recipient consent. The lower branch shows a request, the recipient's Allow recall or Keep message choice, and pending, approved, or declined outcomes.
+
+The design addresses unclear recovery feedback through visible status and user control for both parties. Removal cannot undo reading. A cooperating mail service must verify eligibility at execution; support across external services is not assumed. Evaluation should test the two-condition rule, timing boundaries, and understanding of consent.
+\begin{figure}[!ht]
+\centering
+\input{Figures/prototype_c.tex}
+\captionsetup{margin=0pt}
+\caption{Prototype C: direct Recall within five minutes while unopened; otherwise recipient approval is required.}
+\label{fig:prototype-c}
+\end{figure}
+\clearpage
 
 \section{Evaluation Planning}
 \subsection{Process} Recruit 5--6 adult email users voluntarily from classmates/acquaintances for 15--20 minute facilitator-guided sessions using fictional messages, anonymous notes, think-aloud comments, and varied prototype order (ABC/BCA/CAB). Never access actual mailboxes or send real messages. \subsection{Tasks} A: respond to a missing-attachment warning; B: Undo a message sent to the wrong recipient while pending; C: respond to an inaccurate message already delivered externally. Record no-help/with-help/failure and erroneous actions separately for each different task. \subsection{Measures and analyses} After each design ask four five-point ratings: Q1 system-state clarity, Q2 next-action clarity, Q3 confidence, Q4 expected usefulness. Summarize median, range, distribution, and task-specific error/outcome counts. The preselected primary comparison is a Friedman repeated-measures test on Q1 across three designs, reporting statistic and p-value if enough complete matched responses exist; interpret cautiously. Group qualitative think-aloud and open comments by warning intrusiveness, countdown visibility, Undo/Recall understanding, trust, and new themes; report counts and paraphrases. Full script/questionnaire belongs in Appendix E.
@@ -216,8 +254,64 @@ Only two screenshots from T3 are included because they demonstrate the location 
 
 \textbf{ChatGPT:} I recommend three separate low-fidelity alternatives: A, Inline Pre-Send Error Detection; B, Configurable Undo Send; and C, Recall Status and Recovery Assistant. They address prevention, temporary reversibility, and post-delivery recovery. Keeping them separate in the first iteration will allow participants to evaluate distinct interactions and trade-offs. In the next iteration, you can combine the strongest features if participant feedback supports that choice. You retain the final design decision; AI brainstorming supplies ideas and critique, not user evidence.
 
+\clearpage
 \section{Complete Low-Fidelity Prototype Screens}
-\input{Figures/prototype_a.tex} \par\medskip \input{Figures/prototype_b.tex} \par\medskip \input{Figures/prototype_c.tex} \par\medskip TODO: Add other screens and scripts.
+\label{app:lowfi}
+These views supplement Figures~\ref{fig:prototype-a}--\ref{fig:prototype-c}. All message details are fictional. Reveal the next state after the participant chooses an action; no live email is accessed or sent.
+
+\subsection{A1: Missing attachment}
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=0.67\textheight,width=\linewidth,keepaspectratio,page=2]{Figures/prototype_a.pdf}
+\captionsetup{margin=0pt}
+\caption{A1: attach \texttt{project\_report.pdf}; the warning clears.}
+\end{figure}
+Ask why the phrase is underlined and what the participant would select. Attach file reveals the corrected draft; Ignore keeps the draft unchanged. Observe understanding and reasons rather than treating every dismissal as an error.
+
+\clearpage
+\subsection{A2: Greeting and recipients}
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=0.70\textheight,width=\linewidth,keepaspectratio,page=3]{Figures/prototype_a.pdf}
+\captionsetup{margin=0pt}
+\caption{A2: a single-name greeting and four recipients trigger a possible-mismatch prompt.}
+\end{figure}
+Ask who would receive the message and whether the greeting is intended. Review recipients supports revising the list or greeting; Ignore preserves an intentional single-person salutation. Copying others can be legitimate, so the prototype does not infer the user's intended audience.
+
+\clearpage
+\subsection{A3: Potentially sensitive text}
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=0.66\textheight,width=\linewidth,keepaspectratio,page=4]{Figures/prototype_a.pdf}
+\captionsetup{margin=0pt}
+\caption{A3: the user edits a fictional home address after a contextual caution.}
+\end{figure}
+This refinement responds to T4 and mixed comfort ratings for scanning. Proposed local rules use keywords such as \enquote{home address} and address-like patterns. They may miss unlabelled private information or flag intentional sharing. Ask what the checker examines and let the participant edit or ignore. Optional on-device processing without draft upload is a design requirement; the prototype establishes neither privacy guarantees nor reduced disclosure.
+
+\clearpage
+\subsection{B: Pending cancellation}
+\begin{figure}[!ht]
+\centering
+\input{Figures/prototype_b.tex}
+\captionsetup{margin=0pt}
+\caption{B: configuration, a pending countdown, and an intact draft after Undo.}
+\end{figure}
+Ask the participant to choose a duration, imagine pressing Send, and cancel before expiry. Reveal the restored draft after Undo. Ask whether the message has reached the recipient and what would happen if the countdown ended. Recipients, body text, and attachments are retained; choosing Send again starts a new pending interval. Without Undo, the next conceptual state is transmission, not guaranteed successful delivery. Compare recovery time with the inconvenience of delayed ordinary messages.
+
+\clearpage
+\subsection{C: Conditional Recall and recipient consent}
+\begin{figure}[!ht]
+\centering
+\input{Figures/prototype_c.tex}
+\captionsetup{margin=0pt}
+\caption{C: two conditions permit direct Recall; the alternative path preserves the original until the recipient approves.}
+\end{figure}
+The interval starts at delivery. At five minutes or less, direct Recall requires verified unopened status. More than five minutes, an opened message, or unknown status requires consent. Eligibility is rechecked at execution and assessed per recipient. Waiting or refusal preserves the original; approval removes the service-managed copy.
+
+This new mechanism requires a cooperating mail service. Unsupported external mailboxes cannot be promised removal, and reading, screenshots, downloads, or forwarded copies cannot be reversed. Such limitations must be stated rather than reporting success.
+
+Evaluate three fictional cases: two minutes/unopened, eight minutes/unopened, and two minutes/opened. Ask when consent is required and what waiting or refusal means. Probe five minutes exactly and unknown read status.
+\clearpage
 
 \section{First-Round Evaluation Script and Questions}
 Opening: explain fictional-email tasks, voluntary participation and de-identified notes. For each design ask what the participant expects and would do, then reveal the next storyboard state. After each, collect Q1 system-state clarity, Q2 next-action clarity, Q3 confidence and Q4 usefulness (1--5), and ask what was confusing or should change. At the end ask overall preference, intrusive aspects and trust concerns. Record assistance and task outcomes.
