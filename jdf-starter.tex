@@ -2,101 +2,96 @@
 \usepackage{graphicx,booktabs,array,hyperref}
 \author{Zihan Zheng}
 \email{zzheng399@gatech.edu}
-\title{Individual Project Check-In 3: Evaluation Plan for Safer Email Sending and Recovery}
+\title{Individual Project: Safer Email Sending and Recovery}
 \begin{document}
 \maketitle
-\section{Project Overview and Status}
-This project focuses on the existing task of sending an email accurately and responding to errors around the Send action, not redesigning a whole email client. Check-In 1 documented an unsuccessful attempt to Recall a message sent from Outlook to an external Gmail account. Check-In 2 reported an 18-person convenience survey (including 15 reporting forgotten attachments and 10 selecting wrong recipients), brainstorming, and three low-fidelity designs. These observations motivate the designs but are not population-wide claims. No first-round participant evaluation has yet been conducted.
+\noindent\textit{Working draft. TODO marks genuine missing evidence or work; no unperformed evaluation is presented as completed.}
 
-Prototype A (Pre-Send Safety Check) warns about a likely missing attachment, then allows correction or override. Prototype B (Delayed Send and Undo) displays a pending-send countdown during which an incorrect send can be cancelled. Prototype C (Transparent Recovery Assistant) explains the limits of recalling an already delivered external email and supports realistic follow-up. These are proposed interactions, not verified Outlook features. The three storyboard files are retained in the repository. This check-in solicits feedback on the initial evaluation plan.
+\section{Introduction}
+This project improves the existing task of sending email accurately and recovering from mistakes in Outlook, rather than redesigning the entire mail client. A motivating incident was an unsuccessful attempt to recall a message sent from Outlook to an external Gmail recipient. Users want to prevent forgotten attachments and wrong recipients, cancel an accidental send when possible, and understand what to do after delivery. The proposed redesign addresses three stages: before Send, immediately after Send, and after delivery.
 
-\begin{figure}[ht]\centering
-\input{Figures/prototype_a.tex}
-\caption{Prototype A: targeted pre-send warning and draft correction.}
-\end{figure}
-\begin{figure}[ht]\centering
-\input{Figures/prototype_b.tex}
-\caption{Prototype B: delayed send, visible Undo window, and cancellation.}
-\end{figure}
-\begin{figure}[ht]\centering
-\input{Figures/prototype_c.tex}
-\caption{Prototype C: transparent status and corrective follow-up.}
-\end{figure}
+\section{Needfinding Plan}
+\subsection{User-interaction activity: survey} I planned a voluntary convenience survey of around 20 regular email users, recruited from accessible classmates and acquaintances, asking about sending mistakes, user familiarity with Undo/Recall, and desired safeguards. The full instrument and raw response summaries belong in Appendix A. \subsection{Second activity: heuristic evaluation} I planned to inspect Outlook's sending and recall task using at least three heuristics: H1 Visibility of System Status, H3 User Control and Freedom, and H5 Error Prevention. I performed four Outlook tasks as a single evaluator: missing attachment (H5/H3), wrong recipient or Reply All (H5/H3), Recall/Resend (H1/H3), and sensitive-looking content (H5/H3). I removed the separate Undo Send test; Undo Send remains a proposed design rather than a tested Outlook capability. I recorded screenshots and provisional severity ratings. \textbf{TODO:} Add Outlook version, account type, date, device/browser and settings.
 
-\section{Objectives and Comparison Strategy}
-The evaluation asks: (1) Can users understand each system state and their next action? (2) Can users respond appropriately to each sending mistake? (3) Which safeguards are useful or disruptive, and why? Each participant will examine all three prototypes. Shared ratings will support comparison of perceived clarity, ease, confidence, and usefulness across A/B/C. Because the scenarios represent different stages of sending, task success rates will be interpreted separately within each scenario, not used to rank A/B/C as if tasks were identical. Feedback will inform the selection or combination of features for the second-iteration medium-fidelity prototype.
+\section{Needfinding Results}
+\subsection{Active needfinding} The prior check-in recorded 18 convenience-survey responses; 15 respondents reported having forgotten attachments and 10 reported choosing wrong recipients. These are self-reports from a nonrepresentative sample, not measured error rates. \textbf{TODO:} Verify counts and insert original survey questions, all results, recruitment details, and anonymized raw records in Appendix A. \subsection{Heuristic evaluation findings} In four documented tasks, the evaluator reported: (T1, H5/H3) no warning for a message referring to an attachment that was not included (severity 1); (T2, H5/H3) recipients were visible and editable, but no warning appeared for a potentially unintended recipient or Reply All (severity 3); (T3, H1/H3) Recall/Resend was hard to find in nested menus, and the recall-report notification did not make the outcome easy to understand (severity 3); (T4, H5/H3) no warning appeared for fictional sensitive-looking content (severity 4 as recorded, pending review of justification and settings). The Recall screenshots show a request and report notification, not verified deletion from the recipient's inbox. \textbf{TODO:} Insert screenshots and issue IDs; verify Outlook configuration, the actual recall outcome and the severity-4 rationale. \subsection{Three insights} (1) Frequent reported forgotten attachments motivate contextual attachment checks. (2) Wrong-recipient observations and hard-to-reverse sending motivate an optional configurable pre-transmission Undo Send delay with a visible countdown, conceptually similar to Gmail; this is a design proposal, not a feature tested in Outlook. (3) The motivating failed recall suggests a possible mismatch between user expectations and post-delivery control; \textbf{TODO:} substantiate this third insight with actual needfinding findings before asserting it as a result.
 
-\section{Participants, Recruitment, and Materials}
-The target is 5--6 adult, regular email users, recruited from classmates and acquaintances, ideally with varied Gmail/Outlook experience. Invitations will describe an approximately 15--20 minute voluntary session with fictional emails. Participation credit will be mentioned only if actually available through course procedures; no incentive is guaranteed. No real messages will be sent, and no login details or identifying raw survey exports will be collected. Each person will review all three paper-style storyboards. A facilitator advances to the next state in response to the participant's selection; this is a facilitator-operated paper prototype, not functional software. Prototype order will vary across participants (ABC, BCA, CAB) to limit sequence effects. Participants can skip questions or stop. Notes use anonymous identifiers (P01, etc.).
+\section{Initial Brainstorming Plan}
+My proposed process separates divergent generation from convergent selection. First generate ideas for before-Send prevention, during-pending cancellation, and after-delivery recovery, including both automatic and user-controlled alternatives. Next examine each idea for clarity, interruption cost, feasibility, and relevance to needfinding. To reduce anchoring and premature evaluation, record a wide option set before narrowing. \textbf{TODO:} Insert actual brainstorming procedure, date, notes and any AI-assistance transcript in Appendix C.
 
-\section{Evaluation Procedure}
-\begin{enumerate}
-\item \textbf{Opening (2 minutes):} Explain the purpose, confirm voluntary participation and consent to anonymous note-taking, and state that the interface, not the participant, is being tested.
-\item \textbf{Background (2 minutes):} Ask which email client the participant usually uses, frequency of use, and familiarity with Undo Send and Recall.
-\item \textbf{Tasks (9--12 minutes including ratings):} For each prototype, read the corresponding prompt in Table 1 without revealing the correct action. Ask the participant to think aloud and point to or describe a chosen action. Show the resulting storyboard state. Record completion without/with help or failure, incorrect actions, misunderstandings, and comments. Use only neutral prompts if stuck and record any assistance.
-\item \textbf{Post-task ratings:} After each prototype, ask the four identical five-point questions in Appendix B.
-\item \textbf{Wrap-up (2 minutes):} Ask for overall preference, concerns, and desired changes; thank the participant.
-\end{enumerate}
-\begin{table}[ht]\centering\small
-\begin{tabular}{p{.12\linewidth}p{.43\linewidth}p{.34\linewidth}}\toprule
-Design & Fictional task & Suitable response\\\midrule
-A & You tell a professor a report is attached, forget the attachment, and press Send. What do you do? & Notice the warning and add the attachment before sending (or explain a valid override).\\
-B & Just after pressing Send, you realize the recipient is wrong. What do you do? & Use Undo before the pending countdown expires, then correct the draft.\\
-C & You discover an inaccurate message was already delivered to an external Gmail recipient. What now? & Acknowledge no guaranteed recall of delivered mail; choose a realistic follow-up such as a correction.\\\bottomrule
-\end{tabular}
-\caption{Scenarios and prototype-specific success criteria.}
-\end{table}
+\section{Brainstorming Results}
+The three documented design alternatives are A, Pre-Send Safety Check; B, Delayed Send and Undo; and C, Transparent Recovery Assistant. \textbf{TODO:} Supply the original complete idea list, discarded options, and specific selection reasoning. \subsection{Textual prototype A} A conditional warning notices text referring to an attachment when none is present, returning the user to the draft or allowing deliberate override. It targets the survey-reported attachment mistake. \subsection{Textual prototype B} After pressing Send, a visible countdown and Undo control allow cancellation and editing during a short pending interval. It targets immediate wrong-recipient errors. \subsection{Textual prototype C} After confirmed external delivery, the interface explains why recall cannot be guaranteed and offers realistic actions such as sending a correction. It targets recovery expectations.
 
-\section{Quantitative and Qualitative Measures}
-\subsection{Numerical measures and planned statistical analysis}
-After each scenario, collect four common 1--5 Likert ratings: Q1, understanding the system state; Q2, knowing the next action; Q3, confidence in handling the mistake; Q4, usefulness in routine emailing. Record completion (without help / with help / not completed) and number of erroneous actions as additional diagnostic counts. Summarize each rating by prototype using median, range, and response distribution; report task outcome and error counts by task.
+\section{Initial Prototyping}
+The three low-fidelity storyboards below show conceptual interactions, not verified Outlook functions. \subsection{A: Contextual attachment check} A draft mentioning a report leads to a warning and then a corrected draft; the rationale is error prevention with corrective action. \begin{figure}[htbp]\centering\input{Figures/prototype_a.tex}\caption{Prototype A: pre-send attachment check.}\end{figure} \subsection{B: Pending-send Undo} An incorrectly addressed email leads to a 30-second pending state and then a cancelled draft; the rationale is visible state and user control. \begin{figure}[htbp]\centering\input{Figures/prototype_b.tex}\caption{Prototype B: delayed Send and Undo.}\end{figure} \subsection{C: Transparent recovery} A delivered external email leads to an explanation of recall limitations and appropriate follow-up options; the rationale is clear feedback and recovery. \begin{figure}[htbp]\centering\input{Figures/prototype_c.tex}\caption{Prototype C: post-delivery recovery.}\end{figure} \textbf{TODO:} Add full frames/scripts in Appendix D.
 
-The preselected primary comparative outcome is Q1 (clarity). Since the same 5--6 participants rate all three alternatives on an ordinal scale, perform a Friedman repeated-measures test for Q1, reporting test statistic and p-value. Treat the other ratings descriptively to avoid inflating multiple-testing claims. If missing responses prevent meaningful matched analysis, state the limitation and present descriptive results rather than manufacture inferential statistics. A non-significant result in this small, low-powered sample will not be interpreted as proof of equivalent designs. The numeric comparison concerns user perceptions, not relative task success across non-equivalent scenarios.
+\section{Evaluation Planning}
+\subsection{Process} Recruit 5--6 adult email users voluntarily from classmates/acquaintances for 15--20 minute facilitator-guided sessions using fictional messages, anonymous notes, think-aloud comments, and varied prototype order (ABC/BCA/CAB). Never access actual mailboxes or send real messages. \subsection{Tasks} A: respond to a missing-attachment warning; B: Undo a message sent to the wrong recipient while pending; C: respond to an inaccurate message already delivered externally. Record no-help/with-help/failure and erroneous actions separately for each different task. \subsection{Measures and analyses} After each design ask four five-point ratings: Q1 system-state clarity, Q2 next-action clarity, Q3 confidence, Q4 expected usefulness. Summarize median, range, distribution, and task-specific error/outcome counts. The preselected primary comparison is a Friedman repeated-measures test on Q1 across three designs, reporting statistic and p-value if enough complete matched responses exist; interpret cautiously. Group qualitative think-aloud and open comments by warning intrusiveness, countdown visibility, Undo/Recall understanding, trust, and new themes; report counts and paraphrases. Full script/questionnaire belongs in Appendix E.
 
-\subsection{Qualitative questions and analysis}
-Ask participants to think aloud during tasks. After each, ask what was confusing and what they would change. At the end, ask which safeguard they prefer and why; inquire about interruptions, privacy, and misleading expectations. Summarize anonymized comments and categorize by themes, initially including warning fatigue, timer visibility, Undo/Recall misunderstanding, and recovery trust while allowing new categories. Report the count of participants mentioning each theme and concise illustrative paraphrases. These are potential coding themes, not observed findings.
+\section{Evaluation Results}
+\subsection{Recruitment and execution}\textbf{TODO:} Insert actual participant count, recruitment, dates, participant characteristics, order and deviations from plan. \subsection{Quantitative findings}\textbf{TODO:} Insert real responses, outcomes, descriptive tables, Friedman statistic and p-value (or justified inability to test), and interpretation. \subsection{Qualitative findings}\textbf{TODO:} Insert coded participant comments, thematic counts, illustrative evidence and design implications. Insert de-identified raw results in Appendix F. No completed evaluation is claimed.
 
-\section{Planned Use of Findings}
-The first evaluation will identify usability issues and guide a documented second-iteration design decision. For example, if users miss the countdown, make the pending state more prominent; if they misinterpret Recall, clarify delivery status; if warnings are intrusive, narrow trigger conditions. These are contingent decisions rather than asserted results. The final report will separately document actual recruitment, deviations from plan, numeric findings and statistical results, qualitative themes, and design revisions.
+\section{Second Iteration Planning}
+\subsection{Re-introduction and user needs} The second iteration revisits the same task using first-round evaluation findings to identify new needs and unanswered questions. \textbf{TODO:} Summarize actual insights from the first evaluation; state whether further needfinding was necessary and why. \subsection{Design selection and refinement} A provisional concept combines targeted warning, visible Undo and transparent recovery. \textbf{TODO:} Explain which concepts should be kept, revised or rejected based on actual evaluation data, and document further brainstorming and rationale. The provisional combination is not presented as a validated outcome.
 
-\section{Peer Feedback Requested}
-Are the three task prompts clear and neutral? Is the cross-prototype rating comparison appropriate despite different error stages? What interface states or potential misunderstandings are missing? Is this participant and analysis plan feasible?
+\section{Final Prototype}
+\subsection{Medium-fidelity direction} The proposed interface follows Compose, Conditional Warning, Pending Send, Cancelled/Editable Draft, and Delivered/Recovery. It should use consistent labels and a realistic interface sufficiently concrete for feedback. \subsection{Actual prototype screens}\textbf{TODO:} Build and show multiple real medium-fidelity screenshots of all primary and alternative states, identify the tool, describe interactions and provide a working link if applicable. \subsection{Design rationale}\textbf{TODO:} Justify actual implementation decisions with course concepts and first-round user evidence, and provide complete views in Appendix G. The existing low-fidelity storyboards do not substitute for the medium-fidelity artifact.
 
+\section{Video Prototype}
+\textbf{TODO:} Record an approximately five-minute video demonstration of the actual medium-fidelity interface in action, with a complete walkthrough narrated in my own voice and brief reasons for design choices. This is an interaction demonstration, not merely a slide presentation. \par Video link: \texttt{[INSERT VIDEO URL]}. \par Access instructions: \texttt{[INSERT INSTRUCTIONS]}. Verify access for anyone with a Georgia Tech account.
+
+\section{Final Evaluation Planning}
+\subsection{Recruitment and procedure} Conduct a second, distinct participant evaluation of the final medium-fidelity design or its narrated video. A reasonable target is approximately five interview participants (about ten minutes each), or approximately 20 short-survey respondents. \textbf{TODO:} Choose and document the precise method, recruitment/incentives, interaction or viewing task, and consent procedure. \subsection{Questions and analysis} Draft five-point items cover pending/delivered clarity, Undo understanding, recall limitations and usefulness. Ask open questions about confusion, preferred safeguard, intrusiveness, and possible improvements. Quantitative analysis should report distributions and medians, plus any observed completion/error counts or a suitable preselected statistical test. Qualitative analysis should code recurring themes and summarize counts and anonymized comments. Full instruments belong in Appendix H.
+
+\section{Final Evaluation Results}
+\subsection{Execution}\textbf{TODO:} Record real participant count, recruitment, procedure, dates and deviations. \subsection{Quantitative analysis}\textbf{TODO:} Report actual ratings, descriptive summaries or preplanned statistical test, and interpretation. \subsection{Qualitative analysis}\textbf{TODO:} Report actual themes, representative evidence, implications, limitations and further design priorities. Add de-identified raw data to Appendix I.
+
+\section*{References}
+\textbf{TODO:} Add cited course readings, heuristic sources and any borrowed assets; use proper in-text references.
 \appendix
-\section{Facilitator Script}
-Opening: Thank you for helping evaluate three early ideas for addressing email-sending mistakes. This is a test of the interfaces, not you. The emails are fictional. Please explain what you think is happening and point to the action you would take. I will advance the mock interface based on your choice. May I take de-identified notes? You can stop at any time.
 
-For each prototype: Read the matching Table 1 prompt. Ask: What do you expect to happen? What would you do next? Show the next paper state only after the response. If the participant is stuck, record it before asking a neutral question such as: What options do you see?
+\section{Needfinding Survey: Questions and Raw Results}
+TODO: Insert exact original survey instrument, recruitment, all response counts, graphs, and anonymized response data.
 
-Close: Which approach would you want in your everyday email client, and why? What trade-off worries you? What one change would you make?
+\section{Heuristic Evaluation: Protocol and Evidence}
+Single-evaluator Outlook inspection using Nielsen's official H1 Visibility of System Status, H3 User Control and Freedom, and H5 Error Prevention. Four tasks were completed (standalone Undo Send task removed).\n\begin{enumerate}\n\item T1 Missing attachment (H5/H3): No detection or warning, and sending proceeded. Severity 1. Proposed contextual attachment warning. Evidence: supplied experiment record pp. 2--3.\n\item T2 Wrong recipient/Reply All (H5/H3): Recipients visible/editable; no warning for unintended recipients or Reply All. Severity 3. Proposed warning when greeting and recipient list may conflict. Evidence: pp. 4--5.\n\item T3 Recall/Resend (H1/H3): Recall/Resend hard to find in nested menus; recall request and report notification observed, but successful recall not established. Severity 3. Proposed short, configurable Undo Send delay before transmission, not post-delivery recall. Evidence: pp. 6--7.\n\item T4 Sensitive-looking content (H5/H3): No warning observed; pre-send editing available. Severity 4 as recorded; needs justification and settings check. Evidence: p. 8.\n\end{enumerate}\n\textbf{TODO:} Insert original screenshots, finalize issue descriptions and severity rationale, document Outlook version/account/date/settings, and complete source-record fields still marked TODO. One evaluator may miss other problems.
 
-\section{Complete Evaluation Questions}
-Background: (1) Which email service do you use most? (2) How often do you send email? (3) Have you used Undo Send or Recall?
+\subsection*{Illustrative Recall Interface Evidence}
+The following two screenshots were uploaded separately in the new repository. They show where to find the Recall action and the subsequent Recall report or notification. \textbf{TODO:} Review both for identifiable names and email addresses before public distribution; replace with redacted versions if needed.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{where to recall.png}
+\caption{Outlook Recall action in the message menu (evaluation task T3).}
+\label{fig:recall-menu}
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{what happen when recall an email.png}
+\caption{Recall request/report interface observed during task T3; the image alone does not prove recall succeeded.}
+\label{fig:recall-report}
+\end{figure}
 
-After \emph{each} A, B, C, circle a rating from 1 (strongly disagree) to 5 (strongly agree):
-\begin{enumerate}
-\item I understood what the system was doing.
-\item I knew what action to take next.
-\item I felt confident handling the mistake.
-\item I would find this safeguard useful when sending email.
-\end{enumerate}
-Open-ended: What was confusing? What would you change?
+\section{Brainstorming Notes and AI Assistance Transcript}
+TODO: Insert complete idea list, brainstorming notes, rejected alternatives and relevant full AI transcript if AI was used.
 
-After all three: Which safeguard do you prefer for routine email and why? Which feels intrusive or misleading? Do you have concerns about privacy or delay?
+\section{Complete Low-Fidelity Prototype Screens}
+\input{Figures/prototype_a.tex} \par\medskip \input{Figures/prototype_b.tex} \par\medskip \input{Figures/prototype_c.tex} \par\medskip TODO: Add other screens and scripts.
 
-\section{Blank Evaluation Recording Sheet}
-\begin{table}[ht]\centering\small
-\begin{tabular}{p{.09\linewidth}p{.12\linewidth}ccccp{.24\linewidth}}\toprule
-ID & Design & Q1 & Q2 & Q3 & Q4 & Task outcome / errors / notes\\\midrule
-P01 & A & -- & -- & -- & -- & Not collected\\
-P01 & B & -- & -- & -- & -- & Not collected\\
-P01 & C & -- & -- & -- & -- & Not collected\\
-P02--06 & A/B/C & -- & -- & -- & -- & Add after sessions\\\bottomrule
-\end{tabular}
-\caption{Empty data structure only; no evaluation results are implied.}
-\end{table}
+\section{First-Round Evaluation Script and Questions}
+Opening: explain fictional-email tasks, voluntary participation and de-identified notes. For each design ask what the participant expects and would do, then reveal the next storyboard state. After each, collect Q1 system-state clarity, Q2 next-action clarity, Q3 confidence and Q4 usefulness (1--5), and ask what was confusing or should change. At the end ask overall preference, intrusive aspects and trust concerns. Record assistance and task outcomes.
 
-\section{Final Assignment Requirements Still Outstanding}
-This check-in is not the complete final report. The November 9 individual project requires: documenting actual first-round evaluation results with the planned quantitative test and qualitative analysis; second-iteration planning; a medium-fidelity prototype; an accessible approximately five-minute video walkthrough with narration and design rationale; a separate final evaluation plan; and actual final evaluation results with quantitative and qualitative analysis. The earlier required heuristic evaluation of an existing email interface using at least three heuristics still needs documented execution and findings; Check-In 2 explicitly noted this gap. Relevant raw instruments/results and any AI-assisted brainstorming transcript belong in final appendices. The final JDF PDF must be composed in Overleaf, with its edit-share link submitted as required. These pending tasks are not represented as completed.
+\section{First-Round Evaluation Raw Results and Statistics}
+TODO: Insert real response-level ratings, task completion, errors, qualitative comments, thematic coding and statistical results.
+
+\section{Medium-Fidelity Prototype Complete Screens}
+TODO: Insert final prototype screen captures, captions and interaction link.
+
+\section{Final Evaluation Full Questionnaire}
+Draft 1--5 items: (1) I can tell whether an email is pending or delivered. (2) I understand when Undo works. (3) Recovery guidance clearly explains Recall limitations. (4) I would find this workflow useful. Open questions: What is confusing? Which feature is most valuable? Would warnings or delays be disruptive? What would you change? TODO: Finalize before testing.
+
+\section{Final Evaluation Raw Results and Statistics}
+TODO: Insert actual anonymized ratings, comments, computed results and analysis.
+
+\section{Submission and Completeness Checklist}
+TODO: Confirm all 13 rubric sections; two needfinding activities including three heuristics; at least three supported insights; brainstorming evidence; three low-fidelity prototypes; both executed participant evaluations; actual medium-fidelity prototype; narrated five-minute demonstration; full instruments, raw data and references; body at most 25 pages excluding references/appendices; Overleaf JDF, single PDF, and edit-share link in Canvas comment; Georgia Tech-accessible external materials.
 \end{document}
-
