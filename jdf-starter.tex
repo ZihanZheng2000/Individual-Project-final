@@ -193,7 +193,28 @@ Only two screenshots from T3 are included because they demonstrate the location 
 \end{figure}
 
 \section{Brainstorming Notes and AI Assistance Transcript}
-TODO: Insert complete idea list, brainstorming notes, rejected alternatives and relevant full AI transcript if AI was used.
+
+\textit{English paraphrased reconstruction of the substantive AI-assisted brainstorming discussion. This is not a verbatim transcript of the original Chinese-language chat. A full original transcript or faithful translation should also be included if the assignment requires a complete transcript.}
+
+\textbf{User:} I finished a survey with 18 responses and an Outlook heuristic evaluation. Can you help brainstorm improvements?
+
+\textbf{ChatGPT:} Yes. I suggest starting from the observed user problems instead of redesigning Outlook as a whole. The survey highlights missing attachments and wrong recipients, while the Undo Send and Recall responses reveal difficulty recovering from mistakes. Your heuristic evaluation adds observations about warning behavior and confusing Recall feedback. These findings suggest three stages where design could help: before Send, during a cancellation interval, and after delivery. We should consider several possible interactions in each stage before deciding which to prototype.
+
+\textbf{User:} What about red underlines, like spell checking?
+
+\textbf{ChatGPT:} Inline warnings could make error prevention contextual rather than interrupting every send. If a message says ``attached'' but no file is present, the phrase could be underlined and offer an attachment action. If a greeting such as ``Hi Alex'' appears inconsistent with the recipient list, the name could be underlined with an option to review recipients. Alternatives include a pre-send confirmation dialog or checklist. The inline approach may be less intrusive, but it could generate false positives and raise questions about inspecting message content. A prototype should demonstrate the warning, its explanation, and ways to correct or ignore it.
+
+\textbf{User:} Can people choose how long Undo lasts?
+
+\textbf{ChatGPT:} A configurable Undo window addresses the experience of noticing an error too late. One design would allow users to select 10, 30, or 60 seconds, then display a countdown and Undo button after pressing Send. The email remains pending during this interval; selecting Undo restores the draft. Alternatives include a fixed delay or a more persistent Undo notification. Longer intervals increase the opportunity to cancel but also delay delivery, so the trade-off should be visible. The prototype should demonstrate both cancellation and timer expiration.
+
+\textbf{User:} Recall is confusing. What if it fails?
+
+\textbf{ChatGPT:} Recall should be presented as an attempt with a status, not guaranteed deletion. Your evaluation suggests that the feature is difficult to locate and its feedback hard to interpret. Possible improvements include a clearer Recall entry point, explicit pending/succeeded/failed/unknown status, and an assisted correction email when the request fails. A correction does not remove the original message, and the interface must explain that limitation. This is consistent with the survey finding that many respondents send follow-up corrections. The prototype could show a Recall attempt, a failed status, and the resulting correction draft.
+
+\textbf{User:} I like those three directions. Let's make three prototypes.
+
+\textbf{ChatGPT:} I recommend three separate low-fidelity alternatives: A, Inline Pre-Send Error Detection; B, Configurable Undo Send; and C, Recall Status and Recovery Assistant. They address prevention, temporary reversibility, and post-delivery recovery. Keeping them separate in the first iteration will allow participants to evaluate distinct interactions and trade-offs. In the next iteration, you can combine the strongest features if participant feedback supports that choice. You retain the final design decision; AI brainstorming supplies ideas and critique, not user evidence.
 
 \section{Complete Low-Fidelity Prototype Screens}
 \input{Figures/prototype_a.tex} \par\medskip \input{Figures/prototype_b.tex} \par\medskip \input{Figures/prototype_c.tex} \par\medskip TODO: Add other screens and scripts.
