@@ -92,10 +92,34 @@ T1 (H5/H3): no warning was observed for a message referring to an absent attachm
 Findings are descriptive and exploratory because of self-reporting, convenience sampling, and a single evaluator.
 
 \section{Initial Brainstorming Plan}
-My proposed process separates divergent generation from convergent selection. First generate ideas for before-Send prevention, during-pending cancellation, and after-delivery recovery, including both automatic and user-controlled alternatives. Next examine each idea for clarity, interruption cost, feasibility, and relevance to needfinding. To reduce anchoring and premature evaluation, record a wide option set before narrowing. \textbf{TODO:} Insert actual brainstorming procedure, date, notes and any AI-assistance transcript in Appendix C.
+
+I planned an individual brainstorming activity assisted by ChatGPT, grounded in my survey of 18 email users and heuristic evaluation of New Outlook. Rather than redesigning the entire application, I focused on the task of safely sending email and recovering from mistakes. I would provide needfinding evidence, propose initial ideas, critically review suggestions, and make the final decisions. ChatGPT would help synthesize findings, broaden the range of alternatives, and identify trade-offs.
+
+The process would separate divergent from convergent thinking. In the divergent phase, I would describe the needfinding results and explore multiple ideas without immediately judging them. To avoid fixation on a single feature, I would examine three stages: before Send, during a pending-send interval, and after delivery. I would consider automatic safeguards and user-controlled alternatives for each stage. In the convergent phase, I would compare ideas by relevance to needfinding, clarity, user control, interruption cost, privacy implications, and feasibility for low-fidelity prototypes.
+
+To mitigate anchoring and confirmation bias, I would request alternatives to my first ideas and examine potential drawbacks, including false-positive warnings, unwanted delays, and the limitations of Recall. I would treat AI-generated suggestions as design hypotheses rather than user evidence. An English paraphrase of the substantive AI-assisted discussion is included in Appendix C and clearly identified as nonverbatim.
 
 \section{Brainstorming Results}
-The three documented design alternatives are A, Pre-Send Safety Check; B, Delayed Send and Undo; and C, Transparent Recovery Assistant. \textbf{TODO:} Supply the original complete idea list, discarded options, and specific selection reasoning. \subsection{Textual prototype A} A conditional warning notices text referring to an attachment when none is present, returning the user to the draft or allowing deliberate override. It targets the survey-reported attachment mistake. \subsection{Textual prototype B} After pressing Send, a visible countdown and Undo control allow cancellation and editing during a short pending interval. It targets immediate wrong-recipient errors. \subsection{Textual prototype C} After confirmed external delivery, the interface explains why recall cannot be guaranteed and offers realistic actions such as sending a correction. It targets recovery expectations.
+
+\subsection{Activity and generated ideas}
+
+I discussed the survey and heuristic evaluation findings with ChatGPT and refined the suggestions using my own judgment. For pre-send prevention, options included confirmation dialogs, attachment checklists, and contextual red underlines for missing attachments or greeting/recipient mismatches. For pending sending, options included fixed delays, configurable Undo duration, and visible countdowns. For post-delivery recovery, options included a more discoverable Recall control, explicit status feedback, and assisted correction emails. I compared the alternatives by needfinding relevance, interruption, user control, privacy, and feasibility.
+
+\subsection{Selection of three alternatives}
+
+I selected three concepts targeting different moments in the same email-sending task. \textbf{A: Inline Pre-Send Error Detection} was preferred over a universal confirmation dialog because it points to specific problems without blocking every message. \textbf{B: Configurable Undo Send} was preferred over a fixed delay because users differ in how long they want to retain cancellation control. \textbf{C: Recall Status and Recovery Assistant} was preferred over simply relocating the Recall button because users also need clear outcomes and realistic corrective actions. The alternatives will be evaluated separately before deciding whether to combine them.
+
+\subsection{Textual prototype A: Inline Pre-Send Error Detection}
+
+In an Outlook-like compose window, a user types a message mentioning an attachment but does not attach a file. The relevant phrase receives a red underline similar to a spelling warning. A greeting such as ``Hi Alex'' may also be underlined if it appears inconsistent with the recipient list or an unintended Reply All. Clicking the underline shows an explanation and actions to attach a file, review recipients, or ignore the warning. The user remains in control, although false positives and privacy are important trade-offs.
+
+\subsection{Textual prototype B: Configurable Undo Send}
+
+In settings, the user chooses an Undo window, such as 10, 30, or 60 seconds. After Send is pressed, the message remains pending while a visible countdown and Undo button appear. Selecting Undo returns the draft with its recipients, content, and attachments intact; otherwise the message is transmitted when the timer expires. Longer windows give more recovery time but delay ordinary delivery. This is cancellation before delivery, not Recall.
+
+\subsection{Textual prototype C: Recall Status and Recovery Assistant}
+
+After sending an email, the user opens Sent Items and selects a clearly labeled Recall action. A status panel explains whether the attempt is pending, succeeded, failed, or unverified, including relevant limitations. If Recall is unsuccessful or unavailable, a Send correction action opens an editable follow-up draft to the original recipients. The interface never claims that a delivered message has been removed without verification.
 
 \section{Initial Prototyping}
 The three low-fidelity storyboards below show conceptual interactions, not verified Outlook functions. \subsection{A: Contextual attachment check} A draft mentioning a report leads to a warning and then a corrected draft; the rationale is error prevention with corrective action. \begin{figure}[htbp]\centering\input{Figures/prototype_a.tex}\caption{Prototype A: pre-send attachment check.}\end{figure} \subsection{B: Pending-send Undo} An incorrectly addressed email leads to a 30-second pending state and then a cancelled draft; the rationale is visible state and user control. \begin{figure}[htbp]\centering\input{Figures/prototype_b.tex}\caption{Prototype B: delayed Send and Undo.}\end{figure} \subsection{C: Transparent recovery} A delivered external email leads to an explanation of recall limitations and appropriate follow-up options; the rationale is clear feedback and recovery. \begin{figure}[htbp]\centering\input{Figures/prototype_c.tex}\caption{Prototype C: post-delivery recovery.}\end{figure} \textbf{TODO:} Add full frames/scripts in Appendix D.
