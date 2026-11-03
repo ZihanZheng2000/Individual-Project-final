@@ -249,12 +249,12 @@ I recorded a narrated screen demonstration of the interactive MailFlow prototype
 
 \section{Final Evaluation Planning}
 \subsection{Recruitment and procedure}
-The final evaluation will use an asynchronous, video-based Microsoft Forms survey rather than live interviews. The target is approximately 20 participants recruited from classmates and other email users. Participants will receive the narrated MailFlow demonstration link, optionally open the interactive HTML prototype, and then complete a short questionnaire. The introduction will describe the study as voluntary course research, avoid requesting unnecessary identifying information, and distinguish video-only viewers from those who also tried the prototype. Estimated participation time is approximately ten minutes including the video.
+The final evaluation uses a published Microsoft Forms questionnaire (\url{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUMU1XRTg2VjhWTFM1MEtaUVUySEZWWUxEMC4u}) for the integrated medium-fidelity MailFlow prototype. Approximately 20 participants will be recruited voluntarily from classmates and other email users. Participants are invited to watch the demonstration and, if possible, explore the interactive prototype before answering. Q1 distinguishes video-only, interactive-only, and combined exposure. The form introduction estimates five minutes for the questionnaire after exploration; total participation is expected to take approximately ten minutes, depending on the time spent exploring. Recruitment and actual completion counts will be reported after data collection.
 
 \subsection{Measures and analysis}
-Quantitative five-point items will assess the clarity of pre-send warnings, perceived usefulness of the three safeguards, understanding of the pending-versus-delivered distinction, clarity of Recall eligibility and approval status, and overall ease of use. Two comprehension questions will ask when Undo Send is available and whether an unopened message can be directly recalled under the final design rule. Qualitative open-ended questions will ask which feature participants value most and what is confusing or should change. Report item distributions, counts, and medians (or means with dispersion) and comprehension accuracy; summarize open-ended responses into recurring themes with anonymized examples. These are perceptions based primarily on watching a demonstration, not observed task-completion measurements. No inferential claim of superiority over Outlook will be made without an appropriate comparative study.
+Three single-choice comprehension scenarios reproduce the first-round tests for a missing-attachment warning, a 30-second Undo Send delay, and direct Recall of an unopened email sent two minutes earlier. Correct responses are the first option in each item. Q5 is a rating question, but its exact matrix statements and response scale are missing from the supplied survey transcription (which reads only ``5.Question''); these must be verified from the published form before final reporting. Q6 asks which feature would be most effective, including equal-effectiveness and none-of-the-above options. Q7 invites an optional explanation; Q8 asks for suggested improvements. Appendix~\ref{app:final-evaluation-questions} reproduces the supplied instrument and records the Q5 gap explicitly.
 
-\textbf{TODO:} Create the actual final Microsoft Form, confirm the survey wording and recruitment details, and reproduce the complete questionnaire in Appendix H. Do not report participants or outcomes before data collection.
+Quantitative analysis will report frequencies and percentages for the three comprehension questions and Q6 preferences, and response distributions and medians for the verified Q5 matrix items. Qualitative answers will be grouped into recurring themes with counts and de-identified examples. The earlier low-fidelity survey offers descriptive context for the same three scenarios, but differences in participants and presentation prevent causal conclusions. The prototype does not deliver real email; the survey measures understanding and perceptions, not actual delivery success. No final evaluation outcomes are reported before collection.
 
 \section{Final Evaluation Results}
 \subsection{Execution}\textbf{TODO:} Record real participant count, recruitment, procedure, dates and deviations. \subsection{Quantitative analysis}\textbf{TODO:} Report actual ratings, descriptive summaries or preplanned statistical test, and interpretation. \subsection{Qualitative analysis}\textbf{TODO:} Report actual themes, representative evidence, implications, limitations and further design priorities. Add de-identified raw data to Appendix I.
@@ -483,25 +483,63 @@ These screenshots document the implemented MailFlow V4 interaction states. The i
 \end{figure}
 
 
-\section{Final Evaluation Full Questionnaire}
-\textit{Proposed instrument for the second-round evaluation; not yet administered.} The introduction will include the narrated demonstration URL and a voluntary-participation statement. Questions refer to the integrated MailFlow design shown in the video, not to the three separate low-fidelity prototypes.
+\section{Final Evaluation Full Questionnaire}\label{app:final-evaluation-questions}
+\textbf{Published survey:} \url{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUMU1XRTg2VjhWTFM1MEtaUVUySEZWWUxEMC4u}
+
+\textbf{MailFlow --- Final Prototype Evaluation Survey}
+
+Thank you for participating in this evaluation! MailFlow is an interactive email prototype designed to help users prevent and recover from common email-sending mistakes. Please watch the demonstration video and, if possible, try the interactive prototype before completing this survey.
+
+\textbf{Interactive Prototype:} \url{https://zihanzheng2000.github.io/mailflow_prototype/}
+
+\textbf{Demonstration Video:} \url{https://gtvault-my.sharepoint.com/:v:/g/personal/zzheng399_gatech_edu/IQCoDjijGlvxSLOoSAevYqpdAXLGodNvVcylA2DDLUJvwW8}
+
+The survey should take approximately 5 minutes after exploring the prototype.
 
 \begin{enumerate}
-\item Did you only watch the demonstration, or did you also try the interactive prototype? (Video only / Video and interactive prototype)
-\item How often do you use email? (Daily / Several times a week / Less often)
-\item The warning clearly explains why an attachment or recipient may be risky. (Five-point agreement scale)
-\item I can tell when a message is pending and when it has been delivered. (Five-point agreement scale)
-\item I understand the difference between Undo Send and Recall. (Five-point agreement scale)
-\item The Recall and recipient-approval messages are easy to understand. (Five-point agreement scale)
-\item The three safeguards would help me avoid or recover from email mistakes. (Five-point agreement scale)
-\item Overall, MailFlow looks easy to use. (Five-point agreement scale)
-\item After clicking Send, when can Undo Send cancel the message? (During the pending countdown / After it has been delivered / At any time / Unsure)
-\item Under the final MailFlow design, when can an email be directly recalled? (When it has not been opened, regardless of elapsed time / Only within five minutes / Even after it has been opened / Unsure)
-\item Which feature is most useful to you, and why? (Open-ended)
-\item What is confusing or should be improved? (Open-ended)
+\item \textbf{How did you explore MailFlow?}
+\begin{itemize}
+\item I watched the demonstration video only.
+\item I tried the interactive prototype only.
+\item I watched the video and tried the interactive prototype.
+\end{itemize}
+\item \textbf{(Error Detection) You write ``Please see the attached file,'' but forget to attach anything. Based on MailFlow, what would you expect to happen?}
+\begin{itemize}
+\item The system highlights the potential mistake and lets me review it.
+\item The system automatically attaches a file.
+\item The email cannot be sent.
+\item I'm not sure.
+\end{itemize}
+\item \textbf{(Undo Send) You select a 30-second Undo Send delay and click Send. What happens next?}
+\begin{itemize}
+\item The email waits 30 seconds before being sent, and I can undo it during that time.
+\item The email is delivered immediately, but I can remove it from the recipient's inbox within 30 seconds.
+\item The email is saved as a draft and will not be sent automatically.
+\item I'm not sure.
+\end{itemize}
+\item \textbf{(Recall Email) You sent an email two minutes ago, and the recipient has not opened it. Based on MailFlow, what would happen if you requested Recall?}
+\begin{itemize}
+\item The email is eligible for direct recall.
+\item The recipient must approve the recall.
+\item The email cannot be recalled.
+\item I'm not sure.
+\end{itemize}
+\item \textbf{Question}
+\emph{The supplied transcription contains only ``5.Question''; the published matrix wording and scale have not been supplied and must be inserted before final submission.}
+\item \textbf{Which MailFlow feature would be most effective for you?}
+\begin{itemize}
+\item Error Detection --- Identifies potential mistakes before an email is sent.
+\item Undo Send --- Allows you to cancel an email during a short delay before delivery.
+\item Recall Email --- Allows you to recall a delivered email, depending on whether the recipient has opened it.
+\item All three features would be equally effective for me.
+\item None of these features would be effective for me.
+\end{itemize}
+\item \textbf{Why do you think this feature would be the most effective for you?}
+(Open text; optional.)
+\item \textbf{How could MailFlow be improved?}
+(Open text.)
 \end{enumerate}
-
-The agreement scale is 1=Strongly disagree through 5=Strongly agree. The planned quantitative summaries are per-item counts, medians and optional means, plus comprehension-item accuracy. Open comments will be grouped into themes. \textbf{TODO:} Confirm the final Microsoft Forms link and exact wording before recruitment; do not substitute this draft for the actual administered instrument.
+\noindent\textit{Comprehension scoring keys for analysis, not shown to participants: first option for Q2, Q3, and Q4. Q5 remains a transcription gap rather than invented wording.}
 
 \section{Final Evaluation Raw Results and Statistics}
 TODO: Insert actual anonymized ratings, comments, computed results and analysis.
