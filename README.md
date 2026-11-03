@@ -55,3 +55,8 @@ This is the canonical repository for future project edits. The prior `Individual
 The complete MailFlow V4 site is committed as [`index.html`](./index.html). **It is not yet a verified public GitHub Pages site.** This report repository is private. To give survey respondents a direct, no-login interactive link, create a separate **public** repository named `mailflow-prototype`, copy `index.html` to its root, and enable Settings → Pages → Deploy from a branch → `main` / `(root)`. The resulting URL is expected to have the form `https://ZihanZheng2000.github.io/mailflow-prototype/` after GitHub reports successful deployment. Verify in an incognito browser before inserting the URL in the report and survey. Do not make the entire report repository public merely to host the demo.
 
 The six uploaded final-prototype figures are referenced with proper captions and labels in Section 10 and Appendix G. Their LaTeX blocks were moved before `\\end{document}` so they can compile.
+
+## Public MailFlow prototype repository
+- Source: https://github.com/ZihanZheng2000/mailflow_prototype
+- GitHub Pages target (requires enabling and verification): https://zihanzheng2000.github.io/mailflow_prototype/
+- The repository is public and contains the interactive `index.html`. Pages is not confirmed active yet. Enable via Settings > Pages > Deploy from branch > main / (root), then check the URL without signing in.
