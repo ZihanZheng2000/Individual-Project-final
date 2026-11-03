@@ -1,7 +1,7 @@
 # CS6750 Individual Project — Full Report Draft (Canonical Repository)
 
 **Project:** Safer Email Sending and Recovery  
-**Current status:** Working draft with all **13 graded sections** in the exact assignment order, plus **10 appendices**. Missing execution evidence is explicitly marked **TODO**; no first-round/final evaluation results or medium-fidelity prototype are fabricated.
+**Current status:** Working draft with all **13 graded sections** in the exact assignment order, plus **10 appendices**. The medium-fidelity MailFlow HTML prototype and video are now documented in the report. Final evaluation results remain **TODO** until real participant responses are collected; no results are fabricated.
 
 ## Files
 - `jdf-starter.tex`: the comprehensive final-project draft, replacing the old Check-In 3 document.
@@ -44,3 +44,9 @@ The report intentionally distinguishes existing counts (18 survey responses, wit
 
 ## Repository transition
 This is the canonical repository for future project edits. The prior `Individual-Project` repository remains an archival reference. The final report draft was migrated from its main branch and references the two Recall images already present in this repository. Confirm image privacy before public submission.
+
+## Final prototype and video (Nov 2026)
+- MailFlow V4 is an interactive HTML prototype with four preset drafts, contextual missing-attachment/sensitive-visa-attachment/wrong-recipient warnings, configurable 10/30/60-second Undo Send, Send Now, and conditional Recall.
+- Direct Recall is available when the recipient has not opened the message, regardless of elapsed time. Opened messages require simulated recipient approval. This is a proposed design, not an actual email-service guarantee.
+- Narrated video: https://gtvault-my.sharepoint.com/:v:/g/personal/zzheng399_gatech_edu/IQCoDjijGlvxSLOoSAevYqpdAXLGodNvVcylA2DDLUJvwW8
+- The report's Section 10 (Final Prototype), Section 11 (Video Prototype), Section 12 (Final Evaluation Planning), and Appendices G/H have been updated. Video access permissions, screenshots, HTML hosting, and final evaluation results still require completion.
