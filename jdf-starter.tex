@@ -201,9 +201,31 @@ The integrated medium-fidelity prototype will show a connected flow from composi
 
 \section{Final Prototype}
 \subsection{Implemented medium-fidelity prototype}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\linewidth]{mailflow.png}
+\caption{MailFlow's unified email workspace, with familiar folder navigation and four prepared draft scenarios.}
+\label{fig:mailflow-workspace}
+\end{figure}
+
+
 The final artifact is \emph{MailFlow}, a browser-based interactive HTML/CSS/JavaScript prototype of an Outlook-like email workspace. It integrates the three previously evaluated alternatives into a single task flow: pre-send error detection, configurable Undo Send, and conditional post-delivery Recall. The prototype uses four prepared messages rather than requiring free-text composition; this keeps scenarios consistent for evaluation and avoids the need for a functioning email backend. It does not transmit actual email. The sidebar includes Inbox, Drafts, Sent Items, Deleted Items, and Settings, with Inbox above Drafts to follow familiar email navigation.
 
 Initially, Drafts contains four messages and Sent Items is empty. Sending a message starts a pending interval; selecting Undo leaves it in Drafts, while selecting Send Now or allowing the timer to expire moves it to Sent Items. A successful recall removes the message from Sent Items and restores it to Drafts. The state is maintained across the interface rather than represented by disconnected static screens. Scenario state is stored locally in the browser, and a reset control restores the starting condition.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.88\linewidth]{case1_unsolved.png}
+\caption{Missing-attachment scenario before correction: a contextual warning identifies the problem in the draft.}
+\label{fig:mailflow-attachment-warning}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.88\linewidth]{case1_solved.png}
+\caption{The same draft after the suggested attachment is added; the correction is reflected in the interface.}
+\label{fig:mailflow-attachment-fixed}
+\end{figure}
 
 \subsection{Error-detection scenarios}
 Each prepared draft has at most one potential issue. \emph{Project Report} mentions an attached report without including a file; the phrase is underlined and the user can add \texttt{Quarterly\_Report.pdf}. \emph{Conference Travel} mistakenly includes \texttt{Visa\_Scan.pdf}, a potentially sensitive identity document that the message does not mention; the warning allows the user to remove the attachment. \emph{Project Meeting Notes} is addressed to an external contact rather than the intended project team; the recipient is highlighted and can be corrected. \emph{Meeting Update} contains no flagged issue and acts as a control. Warnings explain the potential problem, offer a targeted correction, and allow users to review or ignore a warning rather than silently changing content. The visa file and all addresses are fictional examples; no real personal document is processed.
@@ -216,7 +238,7 @@ The final Recall rule was simplified from the earlier five-minute threshold: an 
 \subsection{Design rationale and limitations}
 The design applies Nielsen's \emph{Error Prevention} by detecting contextual mistakes before delivery; \emph{Visibility of System Status} through explicit warnings, countdowns, and pending/recall states; and \emph{User Control and Freedom} through correction, dismissal, Undo, Send Now, and consent-based Recall. The three stages are integrated without making users navigate between separate prototype alternatives. The first-round survey supported continued exploration of all three ideas but did not prove that the integrated version is superior. Because MailFlow is a research simulation, warning accuracy, external delivery, and recipient consent are not validated against live mail systems.
 
-\textbf{TODO before submission:} Include multiple screenshots of the actual MailFlow interface in this section or Appendix G, and provide an accessible interactive prototype URL or an accessible downloadable HTML file. The video alone does not replace the requested screenshots.
+Figures~\ref{fig:mailflow-workspace}--\ref{fig:mailflow-attachment-fixed} show the workspace and contextual correction; Appendix G includes the Undo Send and Recall states. The interactive prototype source is available at \url{https://github.com/ZihanZheng2000/Individual-Project-final/blob/main/index.html}. \textbf{TODO:} Enable and verify a publicly accessible GitHub Pages deployment before recruiting external participants; the repository is currently private and the source-file URL is not a playable public prototype.
 
 \section{Video Prototype}
 I recorded a narrated screen demonstration of the interactive MailFlow prototype. The walkthrough introduces the email-error problem and demonstrates pre-send detection and correction (missing attachment, mistakenly attached visa document, wrong recipient), the selectable Undo Send countdown and Send Now action, and conditional Recall based on whether the recipient has opened the message. The demonstration emphasizes the distinction between canceling a pending send and attempting to recover a delivered message, and explains the rationale for contextual warnings and explicit state feedback.
@@ -437,7 +459,29 @@ Preferred features (multiple selections allowed): A 6, B 5, C 5, None 0. Across 
 \textbf{Limitations:} Seven convenience-sample participants, fixed prototype order, one different scenario comprehension item per prototype, and static storyboard images limit causal and generalizable claims. Correct answers assess recognition of the described prototype behavior, not actual successful email operations.
 
 \section{Medium-Fidelity Prototype Complete Screens}
-The interactive MailFlow V4 artifact uses one connected email workspace. Documented states include (1) four initial drafts and no sent items; (2) missing attachment warning and corrected file; (3) sensitive \texttt{Visa\_Scan.pdf} attachment warning and removal; (4) wrong-recipient warning and corrected address; (5) configurable Undo Send with pending countdown, Undo Send and Send Now; (6) sent mail and direct recall for unopened messages; and (7) recipient approval requested for an opened message. All examples are fictional. \textbf{TODO:} Insert actual screenshots of these states and publish a link to the working HTML prototype; verify access.
+These screenshots document the implemented MailFlow V4 interaction states. The initial workspace and missing-attachment before/after states are shown in Figures~\ref{fig:mailflow-workspace}--\ref{fig:mailflow-attachment-fixed} in Section 10. The following screenshots illustrate the two subsequent recovery stages. All addresses, messages and attachments are fictional; the prototype does not send real email.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\linewidth]{undo_send.png}
+\caption{Undo Send pending state, with a visible countdown and the option to confirm immediate delivery using Send Now.}
+\label{fig:mailflow-undo-send}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\linewidth]{recall_allow.png}
+\caption{Direct Recall for an unopened delivered message in the final design; elapsed time is not an eligibility restriction.}
+\label{fig:mailflow-direct-recall}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\linewidth]{recall_approval.png}
+\caption{Conditional Recall for an opened message, requiring recipient approval rather than automatic removal.}
+\label{fig:mailflow-recall-approval}
+\end{figure}
+
 
 \section{Final Evaluation Full Questionnaire}
 \textit{Proposed instrument for the second-round evaluation; not yet administered.} The introduction will include the narrated demonstration URL and a voluntary-participation statement. Questions refer to the integrated MailFlow design shown in the video, not to the three separate low-fidelity prototypes.
@@ -465,45 +509,3 @@ TODO: Insert actual anonymized ratings, comments, computed results and analysis.
 \section{Submission and Completeness Checklist}
 TODO: Confirm all 13 rubric sections; two needfinding activities including three heuristics; at least three supported insights; brainstorming evidence; three low-fidelity prototypes; both executed participant evaluations; actual medium-fidelity prototype; narrated five-minute demonstration; full instruments, raw data and references; body at most 25 pages excluding references/appendices; Overleaf JDF, single PDF, and edit-share link in Canvas comment; Georgia Tech-accessible external materials.
 \end{document}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{mailflow.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{case1_unsolved.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{case1_solved.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{undo_send.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{recall_allow.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{recall_approval.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
