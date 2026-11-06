@@ -1,0 +1,39 @@
+name: Validate JDF report and page count
+on:
+  push:
+    branches: [main]
+    paths:
+      - "jdf-starter.tex"
+      - "jdf.cls"
+      - "Figures/**"
+      - "*.png"
+      - ".github/workflows/check-report.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build JDF report
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: jdf-starter.tex
+      - name: Record PDF length and body limit
+        shell: bash
+        run: |
+          test -f jdf-starter.pdf
+          pdfinfo jdf-starter.pdf | grep '^Pages:' || true
+          grep 'newlabel{body-end-for-audit}' jdf-starter.aux || true
+          BODY_PAGE=$(sed -n 's/.*newlabel{body-end-for-audit}{{}{\([0-9]*\)}.*/\1/p' jdf-starter.aux | head -1)
+          echo "Body ending page: ${BODY_PAGE:-unknown}"
+          if [ -n "$BODY_PAGE" ] && [ "$BODY_PAGE" -gt 25 ]; then
+            echo "::error::Body ends on page $BODY_PAGE, exceeding the 25-page maximum"
+            exit 1
+          fi
+      - name: Upload compiled PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: mailflow-jdf-report
+          path: jdf-starter.pdf
