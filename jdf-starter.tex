@@ -2,6 +2,15 @@
 \usepackage{graphicx,booktabs,array,hyperref}
 \addbibresource{references.bib}
 \usepackage[percent]{overpic}
+% Compact figure floats without forcing blank pages.
+\renewcommand{\topfraction}{0.90}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{4}
+\setcounter{totalnumber}{6}
+% JDF loads biblatex: cite author/year in parentheses and keep bibliography URLs clickable but compact.
+\DeclareFieldFormat{url}{\href{#1}{Online source}}
 \author{Zihan Zheng}
 \email{zzheng399@gatech.edu}
 \title{Individual Project: Safer Email Sending and Recovery}
@@ -9,7 +18,7 @@
 \maketitle
 \egroup % Close the group opened by this repository's jdf.cls \maketitle definition.
 \section{Introduction}
-This project improves the existing task of sending email accurately and recovering from mistakes in Outlook, rather than redesigning the entire mail client. A motivating case was a documented attempt to recall a message sent from Outlook to an external Gmail recipient; the original record reports that the message remained visible, although the retained screenshots do not independently verify final server-side status. Microsoft documents that Outlook Recall has account and organization restrictions that exclude external Gmail recipients~\cite{microsoft-recall}. Users want to prevent forgotten attachments and wrong recipients, cancel an accidental send when possible, and understand what to do after delivery. The proposed redesign addresses three stages: before Send, immediately after Send, and after delivery. This emphasis on an existing, familiar task is consistent with human-centred design: solutions should be rooted in users' goals, activities, and feedback rather than technology alone~\cite{iso-hcd}.
+This project improves the existing task of sending email accurately and recovering from mistakes in Outlook, rather than redesigning the entire mail client. A motivating case was a documented attempt to recall a message sent from Outlook to an external Gmail recipient; the original record reports that the message remained visible, although the retained screenshots do not independently verify final server-side status. Microsoft documents that Outlook Recall has account and organization restrictions that exclude external Gmail recipients~\parencite{microsoft-recall}. Users want to prevent forgotten attachments and wrong recipients, cancel an accidental send when possible, and understand what to do after delivery. The proposed redesign addresses three stages: before Send, immediately after Send, and after delivery. This emphasis on an existing, familiar task is consistent with human-centred design: solutions should be rooted in users' goals, activities, and feedback rather than technology alone~\parencite{iso-hcd}.
 
 Consider a student emailing a report to an instructor. The sender notices after clicking Send that the attachment was forgotten. If Undo Send has already expired, the sender may search for Recall without knowing whether the recipient has received or opened the message. The potential cost is not only the original error but also uncertainty about whether a correction is needed. This vignette motivates a connected design that can flag a likely mistake before sending, make the pending-send interval visible, and communicate post-delivery recovery conditions. MailFlow is a medium-fidelity simulation of that task, not a replacement email service; the evaluation tests understanding and perceived utility rather than actual delivery or recovery.
 
@@ -20,7 +29,7 @@ I conducted a voluntary 15-question Microsoft Forms convenience survey of email 
 The form collected respondent-identifying fields, including names; therefore the survey is \emph{not anonymous}. Identifiers are excluded from the public report and only aggregate results and nonidentifying themes are presented. Appendix A contains the 15 question topics and response distributions. \textbf{Documentation gap:} Exact collection dates and recruitment channels are not independently confirmed by the material retained in this repository.
 
 \subsection{Activity 2: Heuristic evaluation}
-I performed four Outlook tasks as a single evaluator, using Nielsen's H1 (Visibility of System Status), H3 (User Control and Freedom), and H5 (Error Prevention)~\cite{nielsen-heuristics}: T1 missing attachment (H5/H3), T2 unintended recipient/Reply All (H5/H3), T3 Recall/Resend and status feedback (H1/H3), and T4 fictional sensitive-looking content (H5/H3). I recorded observed interface behavior, severity, and design opportunities. A separate Undo Send task was not performed. The inspection focused on specific message-composition and recovery paths rather than the full Outlook interface, following task-based heuristic inspection practice~\cite{moran-heuristic}. A single evaluator can miss usability issues, so its findings complement rather than replace user research. Only two T3 Recall screenshots are retained in Appendix B; other observations are described in text. The recorded evaluation used the installed Outlook desktop application on a computer (not Outlook on the web). The application was New Outlook (not Classic Outlook). The source record refers to Georgia Tech and UIUC university accounts and a personal Gmail address. The original Word record documents a recall request involving an external Gmail recipient, and screenshots show a Georgia Tech address in the message thread. The record reports that the original message remained visible after a cross-organization recall attempt, but the screenshot of the Recall Report notification does not itself show the final server-side recall status. The complete sender/recipient mapping for every attempt is not established. \textbf{Documentation gap:} The account roles, test date, operating system, and relevant organizational settings cannot be completely reconstructed from the retained evidence.
+I performed four Outlook tasks as a single evaluator, using Nielsen's H1 (Visibility of System Status), H3 (User Control and Freedom), and H5 (Error Prevention)~\parencite{nielsen-heuristics}: T1 missing attachment (H5/H3), T2 unintended recipient/Reply All (H5/H3), T3 Recall/Resend and status feedback (H1/H3), and T4 fictional sensitive-looking content (H5/H3). I recorded observed interface behavior, severity, and design opportunities. A separate Undo Send task was not performed. The inspection focused on specific message-composition and recovery paths rather than the full Outlook interface, following task-based heuristic inspection practice~\parencite{moran-heuristic}. A single evaluator can miss usability issues, so its findings complement rather than replace user research. Only two T3 Recall screenshots are retained in Appendix B; other observations are described in text. The recorded evaluation used the installed Outlook desktop application on a computer (not Outlook on the web). The application was New Outlook (not Classic Outlook). The source record refers to Georgia Tech and UIUC university accounts and a personal Gmail address. The original Word record documents a recall request involving an external Gmail recipient, and screenshots show a Georgia Tech address in the message thread. The record reports that the original message remained visible after a cross-organization recall attempt, but the screenshot of the Recall Report notification does not itself show the final server-side recall status. The complete sender/recipient mapping for every attempt is not established. \textbf{Documentation gap:} The account roles, test date, operating system, and relevant organizational settings cannot be completely reconstructed from the retained evidence.
 
 \section{Needfinding Results}
 \subsection{Survey findings ($N=18$)}
@@ -83,7 +92,7 @@ After mistake: tried undo or recall & 10 & 55.6\% \\
 Fourteen (77.8\%) rated pre-send risk warnings 4 or 5 out of 5. Comfort with sensitive-content scanning was mixed: seven (38.9\%) rated 4--5, four (22.2\%) rated 3, and seven (38.9\%) rated 1--2. Twelve (66.7\%) would accept a delay of at least 30 seconds for an undo opportunity. Four substantive optional comments mentioned wrong names, missing attachments, Undo Send difficulty, and context-aware recipient suggestions. Full distributions are in Appendix A.
 
 \subsection{Heuristic evaluation findings}
-T1 (H5/H3): no warning was observed for a message referring to an absent attachment (recorded severity 1). T2 (H5/H3): recipients were editable but no warning appeared for potentially unintended recipients or Reply All (severity 3). T3 (H1/H3): Recall/Resend was nested under Advanced actions, and recall-report feedback was difficult to interpret (severity 3). Microsoft documentation likewise identifies the Recall Report as the place to check whether a request succeeded, is pending, or failed~\cite{microsoft-recall}. The source record describes an unsuccessful cross-organization attempt in which the original message remained visible. The screenshots establish the recall request, a report notification, and an external Gmail recipient, but not the final server-side recall status. T4 (H5/H3): no warning appeared for fictional sensitive-looking content (severity 4 in the original evaluator notes; this rating is provisional because the potential harm and likelihood were not independently established). These observations concern one tested configuration, not all Outlook versions.
+T1 (H5/H3): no warning was observed for a message referring to an absent attachment (recorded severity 1). T2 (H5/H3): recipients were editable but no warning appeared for potentially unintended recipients or Reply All (severity 3). T3 (H1/H3): Recall/Resend was nested under Advanced actions, and recall-report feedback was difficult to interpret (severity 3). Microsoft documentation likewise identifies the Recall Report as the place to check whether a request succeeded, is pending, or failed~\parencite{microsoft-recall}. The source record describes an unsuccessful cross-organization attempt in which the original message remained visible. The screenshots establish the recall request, a report notification, and an external Gmail recipient, but not the final server-side recall status. T4 (H5/H3): no warning appeared for fictional sensitive-looking content (severity 4 in the original evaluator notes; this rating is provisional because the potential harm and likelihood were not independently established). These observations concern one tested configuration, not all Outlook versions.
 
 \subsection{Three evidence-based insights}
 \textbf{1. Contextual prevention:} Forgotten attachments (15/18) and wrong recipients (10/18) were prominent self-reported problems, consistent with missing contextual warnings in T1 and T2. Consider optional attachment-reference and recipient checks.
@@ -124,46 +133,45 @@ In settings, the user chooses an Undo window, such as 10, 30, or 60 seconds. Aft
 
 After sending an email, the sender selects Recall from Sent Items. In this proposed design, a message that is both unopened and within five minutes of delivery is eligible for direct recall. If more than five minutes have passed, or if the recipient has opened the message, the sender instead requests permission to remove it. The recipient can choose ``Allow recall'' or ``Keep message'', and the sender sees a pending, approved, or declined status. Approval may permit removal from a cooperating mail service but cannot reverse information already read. The five-minute threshold is a design hypothesis, not a claim about Outlook's current behavior; real implementation would require service support and verification.
 
-\clearpage
+
 \section{Initial Prototyping}
 The storyboards illustrate untested low-fidelity concepts; colors distinguish warnings, actions, and recovery.
 
 \subsection{A: Inline Pre-Send Error Detection}
 Figure~\ref{fig:prototype-a} shows three independent sequences: a missing attachment, a single-name greeting with several recipients, and potentially sensitive text. Clicking an underline opens a suggestion; users can correct or ignore it. These checks respond to T1, T2, and T4 through contextual feedback, error prevention, and user control. Proposed optional on-device keyword and pattern rules avoid draft upload for this check. Their accuracy and privacy implications require evaluation; Appendix~\ref{app:lowfi} provides larger views and limitations.
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
 \centering
-\input{Figures/prototype_a.tex}
+\includegraphics[width=0.95\linewidth,height=0.39\textheight,keepaspectratio]{Figures/prototype_a.pdf}
 \captionsetup{margin=0pt}
 \caption{Prototype A: three independent warning-and-correction sequences.}
 \label{fig:prototype-a}
 \end{figure}
 
-\clearpage
+
 \subsection{B: Configurable Undo Send}
 Needfinding showed that five of eleven respondents who tried Undo Send were too late. Prototype B makes the cancellation interval configurable and visible (Figure~\ref{fig:prototype-b}). Panel 1 offers 10, 30, or 60 seconds, with 30 seconds selected. After the user saves the setting and presses Send on a draft, panel 2 displays \enquote{Sending in 00:30}, explicitly identifies the message as pending, and offers Undo. Selecting Undo before expiry produces panel 3: an editable draft with the original recipient, content, and attachment preserved, plus a cancellation confirmation.
 
-The countdown and pending label apply visibility of system status. A timer is especially important for a delay of 10--60 seconds: prolonged operations should provide visible progress and a way to interrupt when feasible~\cite{nielsen-response-time}. Returning the intact draft supports user control, freedom, and error recovery without requiring reconstruction of the message. The visible timer is also an explicit signifier of what action remains possible; discoverable actions and timely feedback reduce uncertainty in everyday interactions~\cite{norman-2013}. If time expires, sending proceeds; the cancellation window closes. This pre-delivery action is distinct from a post-delivery Recall attempt. Evaluation should test whether participants notice the timer, understand that pending means undelivered, and can find Undo. Longer delays offer more recovery time but postpone ordinary delivery; settings discoverability and attention demands remain open questions.
-\begin{figure}[!ht]
+The countdown and pending label apply visibility of system status. A timer is especially important for a delay of 10--60 seconds: prolonged operations should provide visible progress and a way to interrupt when feasible~\parencite{nielsen-response-time}. Returning the intact draft supports user control, freedom, and error recovery without requiring reconstruction of the message. The visible timer is also an explicit signifier of what action remains possible; discoverable actions and timely feedback reduce uncertainty in everyday interactions~\parencite{norman-2013}. If time expires, sending proceeds; the cancellation window closes. This pre-delivery action is distinct from a post-delivery Recall attempt. Evaluation should test whether participants notice the timer, understand that pending means undelivered, and can find Undo. Longer delays offer more recovery time but postpone ordinary delivery; settings discoverability and attention demands remain open questions.
+\begin{figure}[!htbp]
 \centering
-\input{Figures/prototype_b.tex}
+\includegraphics[width=0.95\linewidth,height=0.34\textheight,keepaspectratio]{Figures/prototype_b.pdf}
 \captionsetup{margin=0pt}
 \caption{Prototype B: select a duration, cancel a pending send, and return to a draft.}
 \label{fig:prototype-b}
 \end{figure}
 
-\clearpage
+
 \subsection{C: Conditional Recall and Recipient Consent}
 Figure~\ref{fig:prototype-c} refines the earlier recovery concept into a conditional Recall workflow. Within five minutes of delivery, an unopened message can be recalled directly. After five minutes, or once opened, removal requires recipient consent. The lower branch shows a request, the recipient's Allow recall or Keep message choice, and pending, approved, or declined outcomes.
 
 The design addresses unclear recovery feedback through visible status and user control for both parties. Removal cannot undo reading. A cooperating mail service must verify eligibility at execution; support across external services is not assumed. Evaluation should test the two-condition rule, timing boundaries, and understanding of consent.
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
 \centering
-\input{Figures/prototype_c.tex}
+\includegraphics[width=0.95\linewidth,height=0.39\textheight,keepaspectratio]{Figures/prototype_c.pdf}
 \captionsetup{margin=0pt}
 \caption{Prototype C: direct Recall within five minutes while unopened; otherwise recipient approval is required.}
 \label{fig:prototype-c}
 \end{figure}
-\clearpage
 
 \section{Evaluation Planning}
 \subsection{Process}
@@ -192,7 +200,7 @@ The results did not indicate a need to redefine the original design problem. Rat
 
 \subsection{Design selection and refinement}
 
-Following the human-centred iterative cycle of understanding needs, developing alternatives, evaluating them, and refining the solution~\cite{iso-hcd}, the second iteration will combine the complementary features of A, B, and C into one medium-fidelity email interface. The feature-selection question allowed multiple answers (A: 6/7; B: 5/7; C: 5/7), and the small sample did not establish a statistically significant difference in ease-of-understanding ratings. These findings support exploring integration, but do not prove that the combined design will be superior.
+Following the human-centred iterative cycle of understanding needs, developing alternatives, evaluating them, and refining the solution~\parencite{iso-hcd}, the second iteration will combine the complementary features of A, B, and C into one medium-fidelity email interface. The feature-selection question allowed multiple answers (A: 6/7; B: 5/7; C: 5/7), and the small sample did not establish a statistically significant difference in ease-of-understanding ratings. These findings support exploring integration, but do not prove that the combined design will be superior.
 
 \textbf{A: Pre-send error detection.} Retain contextual, reviewable warnings for missing attachments, recipient mismatches, and potentially sensitive text. Keep users able to correct or dismiss suggestions without unnecessarily interrupting composition. The evaluation directly tested only the missing-attachment scenario; other warning types remain design hypotheses.
 
@@ -216,18 +224,20 @@ The final artifact is \emph{MailFlow}, a browser-based interactive HTML/CSS/Java
 
 Initially, Drafts contains four messages and Sent Items is empty. Sending a message starts a pending interval; selecting Undo leaves it in Drafts, while selecting Send Now or allowing the timer to expire moves it to Sent Items. A successful recall removes the message from Sent Items and restores it to Drafts. The state is maintained across the interface rather than represented by disconnected static screens. Scenario state is stored locally in the browser, and a reset control restores the starting condition.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.88\linewidth]{case1_unsolved.png}
-\caption{Missing-attachment scenario before correction: a contextual warning identifies the problem in the draft.}
+\begin{minipage}[t]{0.485\linewidth}
+\centering
+\includegraphics[width=\linewidth,height=0.38\textheight,keepaspectratio]{case1_unsolved.png}
+\caption{Before correction: missing-attachment warning in the draft.}
 \label{fig:mailflow-attachment-warning}
-\end{figure}
-
-\begin{figure}[htbp]
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
 \centering
-\includegraphics[width=0.88\linewidth]{case1_solved.png}
-\caption{The same draft after the suggested attachment is added; the correction is reflected in the interface.}
+\includegraphics[width=\linewidth,height=0.38\textheight,keepaspectratio]{case1_solved.png}
+\caption{After correction: the attachment is added and warning clears.}
 \label{fig:mailflow-attachment-fixed}
+\end{minipage}
 \end{figure}
 
 \subsection{Error-detection scenarios}
@@ -239,7 +249,7 @@ Settings provides 10-, 30-, and 60-second Undo Send intervals. After Send, the i
 The final Recall rule was simplified from the earlier five-minute threshold: an \emph{unopened} message is eligible for direct recall regardless of elapsed time; an \emph{opened} message requires recipient approval. While approval is pending, the message remains in Sent Items; simulated approval restores it to Drafts. This change is a deliberate second-iteration design decision to reduce eligibility complexity, not a statement about actual Outlook or cross-provider Recall capabilities. Real recall would require cooperation and reliable status information from email services; previously read information cannot be made unread.
 
 \subsection{Design rationale and limitations}
-The design applies Nielsen's usability heuristics~\cite{nielsen-heuristics} and Norman's emphasis on discoverability and feedback~\cite{norman-2013}: \emph{Error Prevention} by detecting contextual mistakes before delivery; \emph{Visibility of System Status} through explicit warnings, countdowns, and pending/recall states; and \emph{User Control and Freedom} through correction, dismissal, Undo, Send Now, and consent-based Recall. The three stages are integrated without making users navigate between separate prototype alternatives. The first-round survey supported continued exploration of all three ideas but did not prove that the integrated version is superior. Because MailFlow is a research simulation, warning accuracy, external delivery, and recipient consent are not validated against live mail systems.
+The design applies Nielsen's usability heuristics~\parencite{nielsen-heuristics} and Norman's emphasis on discoverability and feedback~\parencite{norman-2013}: \emph{Error Prevention} by detecting contextual mistakes before delivery; \emph{Visibility of System Status} through explicit warnings, countdowns, and pending/recall states; and \emph{User Control and Freedom} through correction, dismissal, Undo, Send Now, and consent-based Recall. The three stages are integrated without making users navigate between separate prototype alternatives. The first-round survey supported continued exploration of all three ideas but did not prove that the integrated version is superior. Because MailFlow is a research simulation, warning accuracy, external delivery, and recipient consent are not validated against live mail systems.
 
 Figures~\ref{fig:mailflow-workspace}--\ref{fig:mailflow-attachment-fixed} show the workspace and contextual correction; Appendix G includes the Undo Send and Recall states. The standalone interactive HTML prototype is published in a dedicated public GitHub repository at \href{https://github.com/ZihanZheng2000/mailflow_prototype}{MailFlow prototype source}. The interactive GitHub Pages prototype is available at \href{https://zihanzheng2000.github.io/mailflow_prototype/}{Open interactive prototype}. The prototype link is provided for reviewer testing; external availability and accessibility should be verified independently before submission.
 
@@ -310,21 +320,24 @@ Single-evaluator inspection of Outlook using H1 Visibility of System Status, H3 
 \item T4 Fictional sensitive-looking content (H5/H3): no warning observed in the tested configuration; the original severity-4 rating is provisional without a documented likelihood and impact justification.
 \end{enumerate}
 Only two screenshots from T3 are included because they demonstrate the location and feedback issues; T1, T2, and T4 are supported by written observations. The evaluation was conducted in the installed Outlook desktop application on a computer. The application was New Outlook rather than Classic Outlook. The original Word record mentions Georgia Tech, UIUC, and personal Gmail accounts or addresses; its Recall Report screenshot identifies Gmail as an external recipient, and its notes report that the original message remained visible after the attempted cross-organization recall. Not every sender/recipient pairing is identifiable from the screenshots. \textbf{Documentation gap:} The test date, operating system, and mail settings are not established by the retained screenshots. \textbf{Privacy check:} Review the two images for identifiable names or email addresses before public distribution.
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{overpic}[width=0.82\linewidth]{where to recall.png}
-% Mask incidental personal name in greeting and personal name in attachment filename.
-\put(9.5,49.4){\colorbox{white}{\rule{22mm}{5mm}}}
-\put(14.0,17.8){\colorbox{white}{\rule{30mm}{8mm}}}
+\begin{minipage}[t]{0.485\linewidth}
+\centering
+\begin{overpic}[width=\linewidth]{where to recall.png}
+% Preserve pre-existing redactions in the source image and mask incidental name text.
+\put(9.5,49.4){\colorbox{white}{\rule{12mm}{3mm}}}
+\put(14.0,17.8){\colorbox{white}{\rule{17mm}{4mm}}}
 \end{overpic}
-\caption{Outlook Recall location in the menu (T3).}
+\caption{Recall location under Advanced actions (T3).}
 \label{fig:recall-menu}
-\end{figure}
-\begin{figure}[htbp]
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
 \centering
-\includegraphics[width=0.82\linewidth]{what happen when recall an email.png}
-\caption{Recall report interface (T3); does not establish successful message deletion.}
+\includegraphics[width=\linewidth]{what happen when recall an email.png}
+\caption{Recall report notice (T3); outcome not established.}
 \label{fig:recall-report}
+\end{minipage}
 \end{figure}
 
 \section{Brainstorming Notes and AI Assistance Transcript}
@@ -353,43 +366,43 @@ Only two screenshots from T3 are included because they demonstrate the location 
 
 \textit{Later design revision (not part of the original exchange): After the initial brainstorming, Prototype C was revised from a status-and-correction assistant to Conditional Recall and Recipient Consent. The revised design introduces a proposed five-minute/unopened eligibility rule and recipient approval in other cases. This revision is documented here to distinguish the final selected prototype from the earlier AI discussion; it should not be mistaken for a verbatim historical dialogue.}
 
-\clearpage
+
 \section{Complete Low-Fidelity Prototype Screens}
 \label{app:lowfi}
 These views supplement Figures~\ref{fig:prototype-a}--\ref{fig:prototype-c}. All message details are fictional. Reveal the next state after the participant chooses an action; no live email is accessed or sent.
 
 \subsection{A1: Missing attachment}
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[height=0.67\textheight,width=\linewidth,keepaspectratio,page=2]{Figures/prototype_a.pdf}
+\includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=2]{Figures/prototype_a.pdf}
 \captionsetup{margin=0pt}
 \caption{A1: attach \texttt{project\_report.pdf}; the warning clears.}
 \end{figure}
 Ask why the phrase is underlined and what the participant would select. Attach file reveals the corrected draft; Ignore keeps the draft unchanged. Observe understanding and reasons rather than treating every dismissal as an error.
 
-\clearpage
+
 \subsection{A2: Greeting and recipients}
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[height=0.70\textheight,width=\linewidth,keepaspectratio,page=3]{Figures/prototype_a.pdf}
+\includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=3]{Figures/prototype_a.pdf}
 \captionsetup{margin=0pt}
 \caption{A2: a single-name greeting and four recipients trigger a possible-mismatch prompt.}
 \end{figure}
 Ask who would receive the message and whether the greeting is intended. Review recipients supports revising the list or greeting; Ignore preserves an intentional single-person salutation. Copying others can be legitimate, so the prototype does not infer the user's intended audience.
 
-\clearpage
+
 \subsection{A3: Potentially sensitive text}
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[height=0.66\textheight,width=\linewidth,keepaspectratio,page=4]{Figures/prototype_a.pdf}
+\includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=4]{Figures/prototype_a.pdf}
 \captionsetup{margin=0pt}
 \caption{A3: the user edits a fictional home address after a contextual caution.}
 \end{figure}
 This refinement responds to T4 and mixed comfort ratings for scanning. Proposed local rules use keywords such as \enquote{home address} and address-like patterns. They may miss unlabelled private information or flag intentional sharing. Ask what the checker examines and let the participant edit or ignore. Optional on-device processing without draft upload is a design requirement; the prototype establishes neither privacy guarantees nor reduced disclosure.
 
-\clearpage
+
 \subsection{B: Pending cancellation}
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
 \centering
 \input{Figures/prototype_b.tex}
 \captionsetup{margin=0pt}
@@ -397,9 +410,9 @@ This refinement responds to T4 and mixed comfort ratings for scanning. Proposed 
 \end{figure}
 Ask the participant to choose a duration, imagine pressing Send, and cancel before expiry. Reveal the restored draft after Undo. Ask whether the message has reached the recipient and what would happen if the countdown ended. Recipients, body text, and attachments are retained; choosing Send again starts a new pending interval. Without Undo, the next conceptual state is transmission, not guaranteed successful delivery. Compare recovery time with the inconvenience of delayed ordinary messages.
 
-\clearpage
+
 \subsection{C: Conditional Recall and recipient consent}
-\begin{figure}[!ht]
+\begin{figure}[!htbp]
 \centering
 \input{Figures/prototype_c.tex}
 \captionsetup{margin=0pt}
@@ -410,7 +423,6 @@ The interval starts at delivery. At five minutes or less, direct Recall requires
 This new mechanism requires a cooperating mail service. Unsupported external mailboxes cannot be promised removal, and reading, screenshots, downloads, or forwarded copies cannot be reversed. Such limitations must be stated rather than reporting success.
 
 Evaluate three fictional cases: two minutes/unopened, eight minutes/unopened, and two minutes/opened. Ask when consent is required and what waiting or refusal means. Probe five minutes exactly and unknown read status.
-\clearpage
 
 \section{First-Round Evaluation Script and Questions}\label{app:first-evaluation-questions}
 \textbf{Survey title:} Email Error Prevention and Recovery --- Prototype Evaluation Survey.
@@ -484,21 +496,21 @@ These screenshots document the implemented MailFlow V4 interaction states. The i
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.94\linewidth]{undo_send.png}
+\includegraphics[width=0.75\linewidth,height=0.39\textheight,keepaspectratio]{undo_send.png}
 \caption{Undo Send pending state, with a visible countdown and the option to confirm immediate delivery using Send Now.}
 \label{fig:mailflow-undo-send}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.94\linewidth]{recall_allow.png}
+\includegraphics[width=0.75\linewidth,height=0.39\textheight,keepaspectratio]{recall_allow.png}
 \caption{Direct Recall for an unopened delivered message in the final design; elapsed time is not an eligibility restriction.}
 \label{fig:mailflow-direct-recall}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.94\linewidth]{recall_approval.png}
+\includegraphics[width=0.75\linewidth,height=0.39\textheight,keepaspectratio]{recall_approval.png}
 \caption{Conditional Recall for an opened message, requiring recipient approval rather than automatic removal.}
 \label{fig:mailflow-recall-approval}
 \end{figure}
