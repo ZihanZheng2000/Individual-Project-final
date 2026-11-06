@@ -1,7 +1,7 @@
 # CS6750 Individual Project — Full Report Draft (Canonical Repository)
 
 **Project:** Safer Email Sending and Recovery  
-**Current status:** All **13 graded sections** and **9 appendices** are present; the interactive MailFlow prototype, video, two evaluation rounds (N=7 and N=20), and bibliography are documented. The latest JDF PDF build succeeds with the body ending on page 20 (36 pages including references and appendices). **Overleaf sync, links and final PDF review remain necessary before Canvas submission.**
+**Current status:** All **13 graded sections** and **9 appendices** are present; the interactive MailFlow prototype, video, two evaluation rounds (N=7 and N=20), and bibliography are documented. The latest JDF PDF build succeeds with the body ending on page 24 (40 pages including references and appendices). **Overleaf sync, links and final PDF review remain necessary before Canvas submission.**
 
 ## Files
 - `jdf-starter.tex`: the comprehensive final-project draft, replacing the old Check-In 3 document.
@@ -76,9 +76,12 @@ See [`FINAL_REPORT_AUDIT.md`](./FINAL_REPORT_AUDIT.md) for the 13-section assess
 ## Build and references verification
 - `references.bib` contains six cited HCI and product-documentation references, rendered through the bundled JDF class's `biblatex` configuration.
 - `.github/workflows/check-report.yml` builds `jdf-starter.tex`, uploads the PDF as an Actions artifact, and fails if the final body page exceeds 25.
-- Final checked PDF: 36 total pages, body end at page 20; build 42165893060.
+- Latest analyzed PDF: 40 total pages, body end at page 24; build 42167322275.
 
 ## PDF layout refinement (November 2026)
 - The latest source pairs the Final Prototype before/after screens and Outlook Recall evidence side by side with a shared caption, combines the three recovery states, and avoids forced `\\clearpage` breaks.
 - Inline citations are rendered as numbered references matching the JDF bibliography; bibliography URLs remain clickable as compact text (`Online source`), and the report's external URLs use short descriptive links.
-- Final validated PDF has **36 pages total, with the body ending on page 20** (GitHub Actions run 42165893060).
+- Latest validated PDF has **40 pages total, with the body ending on page 24** (GitHub Actions run 42167322275).
+
+## Expanded analytical content (November 2026)
+The report now develops the first-round evaluation's interpretation (including the significance and limitations of its Friedman test), maps observed feedback to second-iteration design decisions, explains the removal of the prototype Recall time limit as an unvalidated design choice, and analyzes the final survey's gap between stated clarity and actual Recall-scenario comprehension. The latest verified JDF build has **40 pages overall with the body ending on page 24**, within the 25-page maximum. See audit and the compiled Actions artifact.
