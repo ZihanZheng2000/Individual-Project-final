@@ -249,15 +249,28 @@ I recorded a narrated screen demonstration of the interactive MailFlow prototype
 
 \section{Final Evaluation Planning}
 \subsection{Recruitment and procedure}
-The final evaluation uses a published Microsoft Forms questionnaire (\url{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUMU1XRTg2VjhWTFM1MEtaUVUySEZWWUxEMC4u}) for the integrated medium-fidelity MailFlow prototype. Approximately 20 participants will be recruited voluntarily from classmates and other email users. Participants are invited to watch the demonstration and, if possible, explore the interactive prototype before answering. Q1 distinguishes video-only, interactive-only, and combined exposure. The form introduction estimates five minutes for the questionnaire after exploration; total participation is expected to take approximately ten minutes, depending on the time spent exploring. Recruitment and actual completion counts will be reported after data collection.
+The final evaluation uses a published Microsoft Forms questionnaire (\url{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUMU1XRTg2VjhWTFM1MEtaUVUySEZWWUxEMC4u}) for the integrated medium-fidelity MailFlow prototype. Approximately 20 participants will be recruited voluntarily from classmates and other email users. Participants are invited to watch the demonstration and, if possible, explore the interactive prototype before answering. Q1 distinguishes video-only, interactive-only, and combined exposure. The form introduction estimates five minutes for the questionnaire after exploration; total participation is expected to take approximately ten minutes, depending on the time spent exploring. Actual completion counts and exposure modes are presented in Section 13.
 
 \subsection{Measures and analysis}
 Three single-choice comprehension scenarios reproduce the first-round tests for a missing-attachment warning, a 30-second Undo Send delay, and direct Recall of an unopened email sent two minutes earlier. Correct responses are the first option in each item. Q5 is a required five-point Likert matrix with five statements assessing ease of understanding, perceived control, usefulness, warning effectiveness, and clarity of the distinction between Undo Send and Recall (1 = Strongly disagree through 5 = Strongly agree). The project author confirmed that the published form uses the previously agreed five statements reproduced in Appendix~\ref{app:final-evaluation-questions}. Q6 asks which feature would be most effective, including equal-effectiveness and none-of-the-above options. Q7 invites an optional explanation; Q8 asks for suggested improvements. Appendix~\ref{app:final-evaluation-questions} reproduces the final eight-question instrument.
 
-Quantitative analysis will report frequencies and percentages for the three comprehension questions and Q6 preferences, and response distributions and medians for the verified Q5 matrix items. Qualitative answers will be grouped into recurring themes with counts and de-identified examples. The earlier low-fidelity survey offers descriptive context for the same three scenarios, but differences in participants and presentation prevent causal conclusions. The prototype does not deliver real email; the survey measures understanding and perceptions, not actual delivery success. No final evaluation outcomes are reported before collection.
+Quantitative analysis will report frequencies and percentages for the three comprehension questions and Q6 preferences, and response distributions and medians for the verified Q5 matrix items. Qualitative answers will be grouped into recurring themes with counts and de-identified examples. The earlier low-fidelity survey offers descriptive context for the same three scenarios, but differences in participants and presentation prevent causal conclusions. The prototype does not deliver real email; the survey measures understanding and perceptions, not actual delivery success. Final evaluation outcomes are reported in Section 13.
 
 \section{Final Evaluation Results}
-\subsection{Execution}\textbf{TODO:} Record real participant count, recruitment, procedure, dates and deviations. \subsection{Quantitative analysis}\textbf{TODO:} Report actual ratings, descriptive summaries or preplanned statistical test, and interpretation. \subsection{Qualitative analysis}\textbf{TODO:} Report actual themes, representative evidence, implications, limitations and further design priorities. Add de-identified raw data to Appendix I.
+\subsection{Execution}
+The final Microsoft Forms evaluation collected 20 completed responses between November 3 and 5, 2026. Eight respondents (40\%) tried the interactive prototype only, seven (35\%) watched the video and used the prototype, and five (25\%) watched only the demonstration video. Thus 15/20 (75\%) reported direct interaction. The exported responses included names and email addresses, so participation was not anonymous; identifiers are omitted from this public report. Recruitment channels and individual task completion cannot be verified from the export. The survey assessed understanding and self-reported perceptions, not actual sending or recall of email.
+
+\subsection{Quantitative analysis}
+In the Error Detection scenario, 18/20 respondents (90\%) selected the expected warning-and-review behavior; one expected sending to be blocked and one was unsure. In the 30-second Undo Send scenario, 15/20 (75\%) correctly expected a pending send with an opportunity to cancel; three expected an indefinitely saved draft, one believed delivered mail could be removed from the recipient's inbox, and one was unsure. For a message delivered two minutes earlier but not opened, 12/20 (60\%) correctly expected direct Recall eligibility; three expected recipient approval, three thought recall was impossible, and two were unsure. These scenarios test different functions and cannot be interpreted as equivalent task-success measures.
+
+On five-point Likert scales, the mean (median) rating was 4.45 (5) for ease of understanding, 4.30 (4) for perceived control, 4.50 (5) for usefulness, 4.45 (5) for warning effectiveness, and 4.30 (4) for clarity of the Undo Send--Recall distinction. The numbers agreeing or strongly agreeing were respectively 18, 19, 19, 18, and 18 out of 20. Although 18/20 reported that Undo Send and Recall were clear, only 12/20 selected the expected answer to the specific Recall scenario. Subjective clarity should therefore not be equated with demonstrated understanding of eligibility rules.
+
+Eight participants (40\%) selected all three features as equally effective; five (25\%) chose Recall, four (20\%) Error Detection, and three (15\%) Undo Send. No respondent selected none. These mutually exclusive preferences suggest value in combining complementary safeguards, rather than demonstrating objectively superior efficacy of any one feature. Detailed distributions are in Appendix~\ref{app:final-evaluation-results}. In the earlier low-fidelity evaluation (N=7), expected scenario answers were 7/7, 5/7, and 5/7 respectively. The two surveys used different participants and presentation modes; changes in percentages are not evidence of causally improved or worsened usability. No confirmatory inferential test was pre-specified for the final survey.
+
+\subsection{Qualitative analysis and implications}
+Fifteen respondents supplied optional explanations of feature effectiveness. Their comments described the value of catching missing attachments or other errors, canceling accidental sends, and retaining a recovery option after the Undo window. Five respondents supplied an improvement comment: two were positive without proposing a change, while three proposed (1) showing a send-success notification in the current view rather than immediately navigating to Sent, (2) reducing friction in the recipient-approval branch of Recall, and (3) allowing intentional warning triggers to be dismissed and making warnings more prominent when Send is clicked. These represent individual suggestions, not majority preferences.
+
+The results support perceived usefulness of a combined prevention--cancellation--recovery workflow, while identifying Recall eligibility comprehension, warning control, and send-state feedback as priorities for further iteration. Limitations include a convenience sample, five video-only respondents, hypothetical questions instead of observed completion, possible response bias, and no test of email-provider interoperability. The MailFlow prototype simulates email operations and makes no claim of reliable real-world recall across providers.
 
 \section*{References}
 \textbf{TODO:} Add cited course readings, heuristic sources and any borrowed assets; use proper in-text references.
@@ -548,8 +561,34 @@ Response scale: 1 = Strongly disagree; 2 = Disagree; 3 = Neutral; 4 = Agree; 5 =
 \end{enumerate}
 \noindent\textit{Comprehension scoring keys for analysis, not shown to participants: first option for Q2, Q3, and Q4. Q5 wording was confirmed by the project author.}
 
-\section{Final Evaluation Raw Results and Statistics}
-TODO: Insert actual anonymized ratings, comments, computed results and analysis.
+\section{Final Evaluation Raw Results and Statistics}\label{app:final-evaluation-results}
+This appendix presents de-identified aggregate results for 20 completed questionnaires, collected November 3--5, 2026. Identifying name, email, and timestamp fields are withheld from this public report. All item denominators are 20.
+
+\subsection*{Prototype exposure and scenario responses}
+\begin{itemize}
+\item Exploration: demonstration video only 5; interactive prototype only 8; both 7.
+\item Error Detection: expected highlight and review 18; cannot send 1; unsure 1; automatic attachment 0.
+\item Undo Send: expected 30-second delay with Undo 15; stays a draft indefinitely 3; immediately delivered but removable from inbox 1; unsure 1.
+\item Recall Email: expected direct recall of unopened message 12; needs recipient approval 3; cannot recall 3; unsure 2.
+\end{itemize}
+
+\subsection*{Likert results}
+Scale: 1=Strongly disagree; 2=Disagree; 3=Neutral; 4=Agree; 5=Strongly agree. Distributions show counts for scores 1/2/3/4/5. Positive means Agree or Strongly agree.
+\begin{center}\small
+\begin{tabular}{p{0.34\linewidth}ccccc}\hline
+Statement & Distribution & Mean & Median & Range & Positive \\ \hline
+Easy to understand & 0/0/2/7/11 & 4.45 & 5 & 3--5 & 18 \\
+Feel in control & 0/0/1/12/7 & 4.30 & 4 & 3--5 & 19 \\
+Useful & 0/0/1/8/11 & 4.50 & 5 & 3--5 & 19 \\
+Warnings effective & 0/0/2/7/11 & 4.45 & 5 & 3--5 & 18 \\
+Undo vs.\ Recall clear & 0/1/1/9/9 & 4.30 & 4 & 2--5 & 18 \\ \hline
+\end{tabular}
+\end{center}
+
+\subsection*{Feature preferences and open responses}
+Most effective feature (single choice): all three equally effective 8; Recall 5; Error Detection 4; Undo Send 3; none 0. Fifteen of 20 respondents answered the optional question explaining their preference, addressing error prevention, accidental-send recovery, Recall, and the combined workflow. Five of 20 supplied an improvement response: two positive-only and three distinct actionable suggestions regarding in-context send confirmation, recipient-consent friction, and configurable/visible warnings. These are descriptive qualitative themes, not formally coded prevalence estimates.
+
+\textbf{Validity limits:} The survey measures expected behavior and perceptions, not observed task performance or actual email delivery. Round-one and final-evaluation samples differ. No personal identifiers or respondent-level cross-tabulations are published.
 
 \section{Submission and Completeness Checklist}
 TODO: Confirm all 13 rubric sections; two needfinding activities including three heuristics; at least three supported insights; brainstorming evidence; three low-fidelity prototypes; both executed participant evaluations; actual medium-fidelity prototype; narrated five-minute demonstration; full instruments, raw data and references; body at most 25 pages excluding references/appendices; Overleaf JDF, single PDF, and edit-share link in Canvas comment; Georgia Tech-accessible external materials.
