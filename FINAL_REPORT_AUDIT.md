@@ -47,3 +47,35 @@ Scope: current `main/jdf-starter.tex`, 13 graded sections as mapped by the repos
 ## Required final handoff
 
 Synchronize `jdf-starter.tex` and any changed assets with Overleaf; compile; independently review body-page count, visual figures, bibliography, video and prototype access; then submit the compiled PDF and Overleaf edit-share URL as the course instructions require. Do not treat this audit as proof the PDF is submission-ready.
+
+## 2026-11-05 second pass: exact assignment rubric and length audit
+
+The original CS 6750 Individual Project assignment text supplied in the user's earlier materials was retrieved and checked against every graded question, rather than relying only on the repository README. It specifies 13 graded sections totaling 100 points, a **25-page maximum for the body** (references/appendices excluded), Overleaf JDF composition, one PDF and an Overleaf **edit-share** link. The suggested lengths below are recommendations, not enforced section caps.
+
+| # | Rubric item | Pts | Suggested pages | Current body words* | Requirement-by-requirement judgment |
+|---:|---|---:|---:|---:|---|
+| 1 | Introduction | 5 | ~1 | 253 | Task, user goals and motivating vignette provided; expanded scenario and task scope. |
+| 2 | Needfinding Plan | 5 | ~1 | 413 | Two activities (18-person survey and single-evaluator inspection) and 3 explicitly named heuristics; exact historical collection dates and conditions not established. |
+| 3 | Needfinding Results | 5 | ~2 | 839 | Survey counts, heuristic behavior for T1–T4, three justified insights; Appendix A summary and Appendix B notes. |
+| 4 | Initial Brainstorming Plan | 5 | ~0.5 | 214 | Individual AI-assisted divergent/convergent plan, rationale, anchoring mitigation; Appendix C contains a clearly labelled edited reconstruction, not certified verbatim chat. |
+| 5 | Brainstorming Results | 5 | ~1.5 | 506 | Alternatives, selection rationale for A/B/C, three textual prototypes; Appendix C process notes. |
+| 6 | Initial Prototyping | 10 | ~3 | 458 | Three low-fidelity visual prototypes and design rationale, with full screens in Appendix D; PDF display must still be compiled/verified. |
+| 7 | Evaluation Planning | 5 | ~1 | 415 | Participant procedure, quantitative + qualitative measures, Friedman test and thematic analysis plan; survey in Appendix E. |
+| 8 | Evaluation Results | 10 | ~2 | 435 | N=7, scenario correctness, full Likert distributions, Friedman p=0.472 and interpretive comments; Appendix F. Original participant-level export not independently rechecked in second pass. |
+| 9 | Second Iteration Planning | 5 | ~2 | 483 | Evaluation-based new needs, explicit integration and design refinement; no dedicated new needfinding claimed. |
+| 10 | Final Prototype | 15 | ~3 | 663 | Medium-fidelity interactive MailFlow simulation, multiple figures, design rationale and scenario mechanics; Appendix G. |
+| 11 | Video Prototype | 15 | ~0.5 | 141 | Narrated-demo description, link and access instructions. **Must verify playable link, permissions, voice walkthrough and about-five-minute duration.** |
+| 12 | Final Evaluation Planning | 5 | ~1 | 306 | N≈20 target, exposure procedure, 3 scenario checks, 5 Likert items, preference and optional open responses, analysis plan. Appendix H. |
+| 13 | Final Evaluation Results | 10 | ~1.5 | 574 | N=20, exposure, answer counts, Likert means/medians, preferences, qualitative themes, limitations; Appendix I. All numerical response counts rechecked against the uploaded CSV. |
+
+*Words are approximate source-text counts, with basic LaTeX markup stripped. They are **not** actual PDF page counts. Current body totals **about 5,700 words**, contains **6 figure environments** (including 3 low-fidelity PDF figures), **3 external TeX graphics inputs**, and **4 explicit page breaks**. Reference and appendix text is excluded. With diagrams and JDF layout, a page estimate is unreliable: **the ≤25-page requirement is not yet verified**. Compile in Overleaf and inspect page number immediately before the automatically generated bibliography; avoid removing substantive evidence merely to approach a page target.
+
+### Specific upgrades performed in second pass
+- Added a concrete, task-focused email mistake vignette to the short Introduction.
+- Added **four additional independently checked HCI references**: Moran & Gordon (2023) on heuristic inspection; Norman (2013) on discoverability and feedback; ISO 9241-210:2019 on iterative human-centred design; Nielsen (1993) on response-time feedback. Total is now six bibliography entries, all cited in the body; no unused keys.
+- Integrated these references at points where they support actual methodological choices or prototype design rather than appending unrelated literature.
+- Rechecked the uploaded 20-row final survey (Windows-1252 CSV): exposure 8/7/5; expected scenario choices 18/15/12; five Likert positive counts 18/19/19/18/18; feature choices 8/5/4/3; 15 preference explanations and 5 improvement responses. Identifiers remain private.
+- Source checks after changes: all 13 body sections present; **zero literal TODO markers**, **zero undefined citation references**, **zero undefined cross-references**. A clean Overleaf compilation, final pagination and screenshot pixel-level review still remain.
+
+### Source integrity note on AI brainstorming
+The rubric explicitly asks for the transcript when AI-assisted brainstorming is used. Appendix C presently contains an **edited, reconstructed exchange clearly disclosed as such**. It can document substantive decision-making but is not a verbatim original; describing it as one would be inaccurate. If graders require the complete original interaction, attach the authentic transcript or faithful translation. This is the main content-completeness risk that cannot be truthfully resolved by editing existing reconstructed text.
