@@ -218,6 +218,29 @@ Following the human-centred iterative cycle of understanding needs, developing a
 
 The integrated medium-fidelity prototype will show a connected flow from composing and checking a draft to pending send, Undo, delivery, and conditional Recall, including key alternative states. The next evaluation will test whether users understand these transitions and whether the combined safeguards remain useful without introducing excessive complexity.
 
+\subsection{Design trade-offs and evidence-to-design decisions}
+The three concept studies did not expose all trade-offs of combining them. A contextual warning may prevent mistakes, yet false positives can interfere with deliberate sharing; the final interface therefore provides a dismiss-or-correct choice rather than a compulsory confirmation on every send. A longer Undo Send interval increases cancellation time but delays urgent legitimate messages; the design keeps the countdown visible and adds a deliberate \emph{Send Now} action. A Recall option may provide a recovery path, but without eligibility and status cues it could produce false confidence that an already delivered message has disappeared. Each feature needs to convey both the action available and its limitation.
+
+The change to Prototype C is a substantive design decision. In the first storyboard, direct Recall required both an unopened message and a maximum age of five minutes. The medium-fidelity prototype removes the time limit and retains only the opened/unopened distinction, while preserving the recipient-approval branch for opened messages. This simplifies the rule to be learned, but it was not validated as preferable by the first-round participants and would require provider cooperation to become technically realistic. The final evaluation must therefore ask about this revised rule explicitly and avoid generalizing from the first storyboard.
+
+Table~\ref{tab:iteration-decisions} distinguishes evidence, the resulting prototype response, and what remains untested. The mapping makes clear which decisions are grounded in participant responses and which are design hypotheses.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Evidence-to-design mapping for the second iteration.}
+\label{tab:iteration-decisions}
+\begin{tabular}{p{0.26\linewidth}p{0.36\linewidth}p{0.28\linewidth}}
+\toprule
+Evidence & Design response & Open question \\
+\midrule
+A: 7/7 recognized warning & Contextual, dismissible warnings & Detection accuracy and warning fatigue \\
+B: 2/7 confused Undo with delivered removal & Explicit pending countdown and Undo & Whether users act before expiry \\
+C: 2/7 missed direct-Recall condition & Opened/unopened status and consent & Rule comprehension in realistic contexts \\
+A/B/C selected by 6/7, 5/7, 5/7 & Integrated safeguards across stages & Complexity of combined workflow \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \section{Final Prototype}
 \subsection{Implemented medium-fidelity prototype}
 
@@ -261,6 +284,8 @@ The final Recall rule was simplified from the earlier five-minute threshold: an 
 
 \subsection{Design rationale and limitations}
 The design applies Nielsen's usability heuristics~\parencite{nielsen-heuristics} and Norman's emphasis on discoverability and feedback~\parencite{norman-2013}: \emph{Error Prevention} by detecting contextual mistakes before delivery; \emph{Visibility of System Status} through explicit warnings, countdowns, and pending/recall states; and \emph{User Control and Freedom} through correction, dismissal, Undo, Send Now, and consent-based Recall. The three stages are integrated without making users navigate between separate prototype alternatives. The first-round survey supported continued exploration of all three ideas but did not prove that the integrated version is superior. Because MailFlow is a research simulation, warning accuracy, external delivery, and recipient consent are not validated against live mail systems.
+
+The four predefined draft messages also create a methodological trade-off. They standardize exposure to one missing attachment, one potentially sensitive attachment, one recipient mismatch, and one clean control, which is useful for a reproducible demonstration. But this cannot establish how often a real detector would incorrectly warn or miss unusual mistakes in free-form writing. The clean draft demonstrates a possible no-warning state, not an estimate of specificity. Likewise, a simulated consent response shows an interface state, not real recipient behavior. The strongest supported claim is that MailFlow makes the three recovery stages inspectable within one interface, not that it reduces errors in production email use.
 
 Figures~\ref{fig:mailflow-workspace} and~\ref{fig:mailflow-attachment-comparison} show the workspace and contextual correction; Appendix G includes the Undo Send and Recall states. The standalone interactive HTML prototype is published in a dedicated public GitHub repository at \href{https://github.com/ZihanZheng2000/mailflow_prototype}{MailFlow prototype source}. The interactive GitHub Pages prototype is available at \href{https://zihanzheng2000.github.io/mailflow_prototype/}{Open interactive prototype}. The prototype link is provided for reviewer testing; external availability and accessibility should be verified independently before submission.
 
