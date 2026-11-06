@@ -241,18 +241,18 @@ The final Recall rule was simplified from the earlier five-minute threshold: an 
 \subsection{Design rationale and limitations}
 The design applies Nielsen's usability heuristics~\cite{nielsen-heuristics} and Norman's emphasis on discoverability and feedback~\cite{norman-2013}: \emph{Error Prevention} by detecting contextual mistakes before delivery; \emph{Visibility of System Status} through explicit warnings, countdowns, and pending/recall states; and \emph{User Control and Freedom} through correction, dismissal, Undo, Send Now, and consent-based Recall. The three stages are integrated without making users navigate between separate prototype alternatives. The first-round survey supported continued exploration of all three ideas but did not prove that the integrated version is superior. Because MailFlow is a research simulation, warning accuracy, external delivery, and recipient consent are not validated against live mail systems.
 
-Figures~\ref{fig:mailflow-workspace}--\ref{fig:mailflow-attachment-fixed} show the workspace and contextual correction; Appendix G includes the Undo Send and Recall states. The standalone interactive HTML prototype is published in a dedicated public GitHub repository at \url{https://github.com/ZihanZheng2000/mailflow_prototype}. The interactive GitHub Pages prototype is available at \url{https://zihanzheng2000.github.io/mailflow_prototype/}. The prototype link is provided for reviewer testing; external availability and accessibility should be verified independently before submission.
+Figures~\ref{fig:mailflow-workspace}--\ref{fig:mailflow-attachment-fixed} show the workspace and contextual correction; Appendix G includes the Undo Send and Recall states. The standalone interactive HTML prototype is published in a dedicated public GitHub repository at \href{https://github.com/ZihanZheng2000/mailflow_prototype}{MailFlow prototype source}. The interactive GitHub Pages prototype is available at \href{https://zihanzheng2000.github.io/mailflow_prototype/}{Open interactive prototype}. The prototype link is provided for reviewer testing; external availability and accessibility should be verified independently before submission.
 
 \section{Video Prototype}
 I recorded a narrated screen demonstration of the interactive MailFlow prototype. The walkthrough introduces the email-error problem and demonstrates pre-send detection and correction (missing attachment, mistakenly attached visa document, wrong recipient), the selectable Undo Send countdown and Send Now action, and conditional Recall based on whether the recipient has opened the message. The demonstration emphasizes the distinction between canceling a pending send and attempting to recover a delivered message, and explains the rationale for contextual warnings and explicit state feedback.
 
-\noindent\textbf{Video demonstration:} \url{https://gtvault-my.sharepoint.com/:v:/g/personal/zzheng399_gatech_edu/IQCoDjijGlvxSLOoSAevYqpdAXLGodNvVcylA2DDLUJvwW8}
+\noindent\textbf{Video demonstration:} \href{https://gtvault-my.sharepoint.com/:v:/g/personal/zzheng399_gatech_edu/IQCoDjijGlvxSLOoSAevYqpdAXLGodNvVcylA2DDLUJvwW8}{Watch MailFlow demonstration}
 
 \noindent\textbf{Access instructions:} Open the SharePoint/OneDrive video link in a browser and play the recording. \textbf{Access verification required:} Before submission, test whether graders and teaching assistants with Georgia Tech accounts can view the recording without requesting permission. The video link was supplied by the project author; access and the recording's exact contents have not yet been independently verified.
 
 \section{Final Evaluation Planning}
 \subsection{Recruitment and procedure}
-The final evaluation uses a published Microsoft Forms questionnaire (\url{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUMU1XRTg2VjhWTFM1MEtaUVUySEZWWUxEMC4u}) for the integrated medium-fidelity MailFlow prototype. Approximately 20 participants will be recruited voluntarily from classmates and other email users. Participants are invited to watch the demonstration and, if possible, explore the interactive prototype before answering. Q1 distinguishes video-only, interactive-only, and combined exposure. The form introduction estimates five minutes for the questionnaire after exploration; total participation is expected to take approximately ten minutes, depending on the time spent exploring. Actual completion counts and exposure modes are presented in Section 13.
+The final evaluation uses a published Microsoft Forms questionnaire (\href{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUMU1XRTg2VjhWTFM1MEtaUVUySEZWWUxEMC4u}{Final evaluation survey}) for the integrated medium-fidelity MailFlow prototype. Approximately 20 participants will be recruited voluntarily from classmates and other email users. Participants are invited to watch the demonstration and, if possible, explore the interactive prototype before answering. Q1 distinguishes video-only, interactive-only, and combined exposure. The form introduction estimates five minutes for the questionnaire after exploration; total participation is expected to take approximately ten minutes, depending on the time spent exploring. Actual completion counts and exposure modes are presented in Section 13.
 
 \subsection{Measures and analysis}
 Three single-choice comprehension scenarios reproduce the first-round tests for a missing-attachment warning, a 30-second Undo Send delay, and direct Recall of an unopened email sent two minutes earlier. Correct responses are the first option in each item. Q5 is a required five-point Likert matrix with five statements assessing ease of understanding, perceived control, usefulness, warning effectiveness, and clarity of the distinction between Undo Send and Recall (1 = Strongly disagree through 5 = Strongly agree). The project author confirmed that the published form uses the previously agreed five statements reproduced in Appendix~\ref{app:final-evaluation-questions}. Q6 asks which feature would be most effective, including equal-effectiveness and none-of-the-above options. Q7 invites an optional explanation; Q8 asks for suggested improvements. Appendix~\ref{app:final-evaluation-questions} reproduces the final eight-question instrument.
@@ -449,7 +449,7 @@ Instruction: We are at the end of the survey! Thanks a lot!
 \item \textbf{Any comments are welcomed!} (Optional; single-line text)
 \end{enumerate}
 \textbf{Common Likert items for Q4, Q7, and Q10:} This design is easy to understand.; I would feel in control when using this design.; This feature would be useful in my email application. Five response levels: Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree. \emph{The shared items and response scale follow the questionnaire draft; verify the exact row and column labels in the live form before reporting results, since they were not included in the supplied final text export.}
-\textbf{Survey URL:} \url{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUREs2T01PWVBWMUZXS1FSSFNBNEI2Uk5KOS4u}
+\textbf{Survey URL:} \href{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUREs2T01PWVBWMUZXS1FSSFNBNEI2Uk5KOS4u}{First-round evaluation survey}
 
 \section{First-Round Evaluation Raw Results and Statistics}\label{app:first-evaluation-results}
 The Microsoft Forms CSV contained seven completed responses. The original export also contains names, email addresses, and timestamps; these identifying or potentially identifying fields are intentionally omitted here. No individual response rows are published. All counts below refer to the seven survey respondents unless otherwise stated.
@@ -505,15 +505,15 @@ These screenshots document the implemented MailFlow V4 interaction states. The i
 
 
 \section{Final Evaluation Full Questionnaire}\label{app:final-evaluation-questions}
-\textbf{Published survey:} \url{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUMU1XRTg2VjhWTFM1MEtaUVUySEZWWUxEMC4u}
+\textbf{Published survey:} \href{https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqgg7vYf6y_H89LjQflMz5FAJxUMU1XRTg2VjhWTFM1MEtaUVUySEZWWUxEMC4u}{Final evaluation survey}
 
 \textbf{MailFlow --- Final Prototype Evaluation Survey}
 
 Thank you for participating in this evaluation! MailFlow is an interactive email prototype designed to help users prevent and recover from common email-sending mistakes. Please watch the demonstration video and, if possible, try the interactive prototype before completing this survey.
 
-\textbf{Interactive Prototype:} \url{https://zihanzheng2000.github.io/mailflow_prototype/}
+\textbf{Interactive Prototype:} \href{https://zihanzheng2000.github.io/mailflow_prototype/}{Open interactive prototype}
 
-\textbf{Demonstration Video:} \url{https://gtvault-my.sharepoint.com/:v:/g/personal/zzheng399_gatech_edu/IQCoDjijGlvxSLOoSAevYqpdAXLGodNvVcylA2DDLUJvwW8}
+\textbf{Demonstration Video:} \href{https://gtvault-my.sharepoint.com/:v:/g/personal/zzheng399_gatech_edu/IQCoDjijGlvxSLOoSAevYqpdAXLGodNvVcylA2DDLUJvwW8}{Watch MailFlow demonstration}
 
 The survey should take approximately 5 minutes after exploring the prototype.
 
