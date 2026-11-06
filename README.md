@@ -1,7 +1,7 @@
 # CS6750 Individual Project — Full Report Draft (Canonical Repository)
 
 **Project:** Safer Email Sending and Recovery  
-**Current status:** All **13 graded sections** and **10 appendices** are present; the interactive MailFlow prototype, video, two evaluation rounds (N=7 and N=20), and bibliography are documented. A JDF PDF build has succeeded, with the body ending on page 24 in a verified build (45 total pages). **Overleaf sync, links and final PDF review remain necessary before Canvas submission.**
+**Current status:** All **13 graded sections** and **9 appendices** are present; the interactive MailFlow prototype, video, two evaluation rounds (N=7 and N=20), and bibliography are documented. A JDF PDF build has succeeded, with the body ending on page 24 in a verified build (45 total pages). **Overleaf sync, links and final PDF review remain necessary before Canvas submission.**
 
 ## Files
 - `jdf-starter.tex`: the comprehensive final-project draft, replacing the old Check-In 3 document.
@@ -23,7 +23,7 @@
 12. Final Evaluation Planning (5): separate participant study, quantitative + qualitative instruments
 13. Final Evaluation Results (10): actual outcomes and analysis
 
-**Appendices:** survey aggregate results; heuristic observations; reconstructed brainstorming notes; initial prototype screens; first evaluation script; first evaluation aggregate results; medium-fidelity screens; final evaluation questions; final evaluation aggregate results; completion checklist.
+**Appendices:** survey aggregate results; heuristic observations; reconstructed brainstorming notes; initial prototype screens; first evaluation script; first evaluation aggregate results; medium-fidelity screens; final evaluation questions; final evaluation aggregate results.
 
 ## Mandatory submission requirements
 - **Deadline:** November 9, 2026, 9:00 AM.
@@ -77,3 +77,8 @@ See [`FINAL_REPORT_AUDIT.md`](./FINAL_REPORT_AUDIT.md) for the 13-section assess
 - `references.bib` contains six cited HCI and product-documentation references, rendered through the bundled JDF class's `biblatex` configuration.
 - `.github/workflows/check-report.yml` builds `jdf-starter.tex`, uploads the PDF as an Actions artifact, and fails if the final body page exceeds 25.
 - The first working source revision compiled to 45 total PDF pages, with body end at page 24. Later edits should be checked in the newest workflow run before Canvas submission.
+
+## PDF layout refinement (November 2026)
+- The latest source pairs the Final Prototype before/after screens and Outlook Recall evidence side by side with a shared caption, combines the three recovery states, and avoids forced `\\clearpage` breaks.
+- Inline citations are rendered as numbered references matching the JDF bibliography; bibliography URLs remain clickable as compact text (`Online source`), and the report's external URLs use short descriptive links.
+- An interim compiled PDF had **37 pages in total, with the body ending on page 20**. The final internal checklist appendix was removed afterward; consult the newest Actions run for its final pagination and artifact.
