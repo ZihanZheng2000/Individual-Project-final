@@ -32,13 +32,13 @@
 - External videos/prototypes must be accessible to anyone with a Georgia Tech account.
 - Cite sources and quotes, and use only your own genuine study observations; the TODO fields are not submission-ready.
 
-## Highest-priority uncompleted work
-1. Execute and document the three-heuristic review of existing Outlook sending/recall behavior.
-2. Complete the first participant evaluation and report the preselected Friedman test if sufficient matched data are available.
-3. Use first-round results to select/refine the medium-fidelity prototype, then capture screenshots.
-4. Record and host the narrated video walkthrough.
-5. Final evaluation completed (20 surveys, Nov 3--5, 2026); results and qualitative themes added to Section 13 and Appendix I.
-6. Restore original full survey data/brainstorming notes in appendices and finish citations.
+## Highest-priority remaining submission checks
+1. Compile the latest report in Overleaf, check figures and page count (body maximum 25 pages excluding references/appendices).
+2. Verify narrated video access from a Georgia Tech grader account and verify its duration.
+3. Inspect Outlook screenshots for identifying information and redact if needed.
+4. Check whether the official rubric requires a verbatim brainstorming transcript or respondent-level de-identified raw records; current appendices are explicit reconstructions/aggregates.
+5. Confirm original needfinding dates and heuristic-evaluation environment only when supported by original evidence.
+6. Submit one compiled PDF and the Overleaf edit-share link via Canvas.
 
 The report intentionally distinguishes existing counts (18 survey responses, with 15 forgotten-attachment and 10 wrong-recipient reports) from unverified or still-unperformed study results.
 
@@ -69,3 +69,6 @@ The six uploaded final-prototype figures are referenced with proper captions and
 - Feature preference: all three equally effective 8, Recall 5, Error Detection 4, Undo Send 3.
 - 15 optional feature rationales and 5 improvement comments; the report summarizes recommendations without posting identifying survey data.
 - Updated `jdf-starter.tex` Section 13 and the Final Evaluation Raw Results and Statistics appendix. Do not upload the original CSV to the public repository: it contains participant names and emails.
+
+## Source-level Final Report Audit (November 5, 2026)
+See [`FINAL_REPORT_AUDIT.md`](./FINAL_REPORT_AUDIT.md) for the 13-section assessment, completed repairs, and outstanding submission blockers. The latest `jdf-starter.tex` includes a bibliography with primary Nielsen Norman Group and Microsoft Support sources. No automatic LaTeX compilation, figure privacy audit, or independent access verification is implied by this GitHub update.
