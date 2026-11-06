@@ -79,3 +79,13 @@ The original CS 6750 Individual Project assignment text supplied in the user's e
 
 ### Source integrity note on AI brainstorming
 The rubric explicitly asks for the transcript when AI-assisted brainstorming is used. Appendix C presently contains an **edited, reconstructed exchange clearly disclosed as such**. It can document substantive decision-making but is not a verbatim original; describing it as one would be inaccurate. If graders require the complete original interaction, attach the authentic transcript or faithful translation. This is the main content-completeness risk that cannot be truthfully resolved by editing existing reconstructed text.
+
+## Actual JDF compilation findings and follow-up corrections
+
+A GitHub Actions LaTeX compilation workflow was added at `.github/workflows/check-report.yml` to compile source files and check the last body page label. **The first completed build produced a 45-page PDF and located the last body subsection on page 24**, so the body was within the stated 25-page limit at that revision. This is a measured compiled result, not a word-count estimate. Total PDF pages include the bibliography and appendices.
+
+The build also revealed that the bundled `jdf.cls` loads `biblatex`, so a manual `thebibliography` block did **not** resolve the six `\\cite{}` keys. The bibliography was converted into the new `references.bib` file and `\\printbibliography` with `\\addbibresource`. Subsequent builds are needed to confirm citation resolution and any pagination changes. The CI page-label parser was also corrected to detect the actual `\\newlabel{body-end-for-audit}` format.
+
+An inspection of the first Outlook screenshot found two visible incidental instances of the author's given name (greeting and attachment filename). The LaTeX figure was changed to use white overlays, avoiding publication of those names in the compiled PDF. The underlying repository image remains unchanged and should not be shared as an unredacted public file. The second Recall Report screenshot's personal sender/recipient strings were already covered; the visible Microsoft system address is not a personal identifier.
+
+**Remaining final acceptance:** verify the latest automated build success, the real last body page number, all six citations resolved, and overlay position visually in the PDF. The grading team's access to the video and live prototype and the Overleaf edit-share link must be tested separately.
