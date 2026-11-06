@@ -1,7 +1,7 @@
 # CS6750 Individual Project — Full Report Draft (Canonical Repository)
 
 **Project:** Safer Email Sending and Recovery  
-**Current status:** Working draft with all **13 graded sections** in the exact assignment order, plus **10 appendices**. The medium-fidelity MailFlow HTML prototype and video are now documented in the report. The **final evaluation is complete (N=20)** and the report includes descriptive results and a de-identified aggregate appendix.
+**Current status:** All **13 graded sections** and **10 appendices** are present; the interactive MailFlow prototype, video, two evaluation rounds (N=7 and N=20), and bibliography are documented. A JDF PDF build has succeeded, with the body ending on page 24 in a verified build (45 total pages). **Overleaf sync, links and final PDF review remain necessary before Canvas submission.**
 
 ## Files
 - `jdf-starter.tex`: the comprehensive final-project draft, replacing the old Check-In 3 document.
@@ -23,20 +23,20 @@
 12. Final Evaluation Planning (5): separate participant study, quantitative + qualitative instruments
 13. Final Evaluation Results (10): actual outcomes and analysis
 
-**Appendices:** survey and raw results; heuristic observations; brainstorming and AI transcript; initial prototype screens; first evaluation script; first evaluation raw data; medium-fidelity screens; final evaluation questions; final evaluation raw data; completion checklist.
+**Appendices:** survey aggregate results; heuristic observations; reconstructed brainstorming notes; initial prototype screens; first evaluation script; first evaluation aggregate results; medium-fidelity screens; final evaluation questions; final evaluation aggregate results; completion checklist.
 
 ## Mandatory submission requirements
 - **Deadline:** November 9, 2026, 9:00 AM.
 - **Max 25 pages of body text** (references and appendices excluded).
 - Compose and compile in **Overleaf with the JDF class**, submit **one PDF** to Canvas, and provide an **Overleaf edit-share link in the submission comment**. A GitHub link does not replace this.
 - External videos/prototypes must be accessible to anyone with a Georgia Tech account.
-- Cite sources and quotes, and use only your own genuine study observations; the TODO fields are not submission-ready.
+- Cite sources and quotes, and use only genuine study observations. Explicit documentation gaps are described in the report and audit.
 
 ## Highest-priority remaining submission checks
-1. Compile the latest report in Overleaf, check figures and page count (body maximum 25 pages excluding references/appendices).
+1. Synchronize with Overleaf, compile there, and visually inspect figures and page count. A GitHub Actions JDF build already measured the body ending on page 24; see the latest workflow runs after edits.
 2. Verify narrated video access from a Georgia Tech grader account and verify its duration.
-3. Inspect Outlook screenshots for identifying information and redact if needed.
-4. Check whether the official rubric requires a verbatim brainstorming transcript or respondent-level de-identified raw records; current appendices are explicit reconstructions/aggregates.
+3. Review the final PDF screenshot overlays: the first Outlook screenshot's incidental personal-name text is masked in LaTeX, but the original repository image remains unchanged.
+4. The official rubric asks for an AI brainstorming transcript; Appendix C is an openly disclosed edited reconstruction, not a certified verbatim record. The rubric permits directly summarized survey data; appendices include aggregates.
 5. Confirm original needfinding dates and heuristic-evaluation environment only when supported by original evidence.
 6. Submit one compiled PDF and the Overleaf edit-share link via Canvas.
 
@@ -52,9 +52,9 @@ This is the canonical repository for future project edits. The prior `Individual
 - The report's Section 10 (Final Prototype), Section 11 (Video Prototype), Section 12 (Final Evaluation Planning), and Appendices G/H have been updated. Video access permissions and public-prototype hosting still require independent verification; final evaluation results have now been added.
 
 ## Hosting the interactive prototype
-The complete MailFlow V4 site is committed as [`index.html`](./index.html). **It is not yet a verified public GitHub Pages site.** This report repository is private. To give survey respondents a direct, no-login interactive link, create a separate **public** repository named `mailflow-prototype`, copy `index.html` to its root, and enable Settings → Pages → Deploy from a branch → `main` / `(root)`. The resulting URL is expected to have the form `https://ZihanZheng2000.github.io/mailflow-prototype/` after GitHub reports successful deployment. Verify in an incognito browser before inserting the URL in the report and survey. Do not make the entire report repository public merely to host the demo.
-
-The six uploaded final-prototype figures are referenced with proper captions and labels in Section 10 and Appendix G. Their LaTeX blocks were moved before `\\end{document}` so they can compile.
+- This report repository is private; the separate `mailflow_prototype` repository exists and is public.
+- Interactive site: https://zihanzheng2000.github.io/mailflow_prototype/ . A reviewer should verify its current accessibility before grading; the repository's visibility is not sufficient to prove GitHub Pages is served.
+- The original private Outlook screenshots include source evidence; personal-name overlays in the LaTeX output are intended to protect the final PDF.
 
 ## Public MailFlow prototype repository
 - Source: https://github.com/ZihanZheng2000/mailflow_prototype
@@ -72,3 +72,8 @@ The six uploaded final-prototype figures are referenced with proper captions and
 
 ## Source-level Final Report Audit (November 5, 2026)
 See [`FINAL_REPORT_AUDIT.md`](./FINAL_REPORT_AUDIT.md) for the 13-section assessment, completed repairs, and outstanding submission blockers. The latest `jdf-starter.tex` includes a bibliography with primary Nielsen Norman Group and Microsoft Support sources. No automatic LaTeX compilation, figure privacy audit, or independent access verification is implied by this GitHub update.
+
+## Build and references verification
+- `references.bib` contains six cited HCI and product-documentation references, rendered through the bundled JDF class's `biblatex` configuration.
+- `.github/workflows/check-report.yml` builds `jdf-starter.tex`, uploads the PDF as an Actions artifact, and fails if the final body page exceeds 25.
+- The first working source revision compiled to 45 total PDF pages, with body end at page 24. Later edits should be checked in the newest workflow run before Canvas submission.
