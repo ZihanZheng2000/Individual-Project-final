@@ -89,3 +89,9 @@ The build also revealed that the bundled `jdf.cls` loads `biblatex`, so a manual
 An inspection of the first Outlook screenshot found two visible incidental instances of the author's given name (greeting and attachment filename). The LaTeX figure was changed to use white overlays, avoiding publication of those names in the compiled PDF. The underlying repository image remains unchanged and should not be shared as an unredacted public file. The second Recall Report screenshot's personal sender/recipient strings were already covered; the visible Microsoft system address is not a personal identifier.
 
 **Remaining final acceptance:** verify the latest automated build success, the real last body page number, all six citations resolved, and overlay position visually in the PDF. The grading team's access to the video and live prototype and the Overleaf edit-share link must be tested separately.
+
+## Final compilation and visual review
+
+The latest successful automated JDF build after the citation and URL fixes reported **45 PDF pages total and the end of the body on page 24**, satisfying the 25-page body maximum. PDF pages 27 and 28 were rendered and visually reviewed. The Outlook screenshot on page 27 exposed an incidental personal name in a greeting and filename; both PDF overlays were repositioned against the rendered coordinates, and the filename overlay height was enlarged for full text coverage. The source PNG is unchanged and remains in the private report repository. The very latest screenshot-mask adjustment should be confirmed in the final Actions PDF artifact.
+
+This audit does not establish that the OneDrive video is accessible to every Georgia Tech account, and it does not substitute for the mandatory Overleaf edit-sharing and Canvas PDF submission.
