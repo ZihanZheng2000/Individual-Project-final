@@ -1,6 +1,7 @@
 \documentclass[letterpaper]{jdf}
 \usepackage{graphicx,booktabs,array,hyperref}
 \addbibresource{references.bib}
+\usepackage[percent]{overpic}
 \author{Zihan Zheng}
 \email{zzheng399@gatech.edu}
 \title{Individual Project: Safer Email Sending and Recovery}
@@ -310,7 +311,11 @@ Single-evaluator inspection of Outlook using H1 Visibility of System Status, H3 
 Only two screenshots from T3 are included because they demonstrate the location and feedback issues; T1, T2, and T4 are supported by written observations. The evaluation was conducted in the installed Outlook desktop application on a computer. The application was New Outlook rather than Classic Outlook. The original Word record mentions Georgia Tech, UIUC, and personal Gmail accounts or addresses; its Recall Report screenshot identifies Gmail as an external recipient, and its notes report that the original message remained visible after the attempted cross-organization recall. Not every sender/recipient pairing is identifiable from the screenshots. \textbf{Documentation gap:} The test date, operating system, and mail settings are not established by the retained screenshots. \textbf{Privacy check:} Review the two images for identifiable names or email addresses before public distribution.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.82\linewidth]{where to recall.png}
+\begin{overpic}[width=0.82\linewidth]{where to recall.png}
+% Mask incidental personal name in greeting and personal name in attachment filename.
+\put(11.5,55.7){\colorbox{white}{\rule{22mm}{5mm}}}
+\put(17.0,23.5){\colorbox{white}{\rule{43mm}{5mm}}}
+\end{overpic}
 \caption{Outlook Recall location in the menu (T3).}
 \label{fig:recall-menu}
 \end{figure}
