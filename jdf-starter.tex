@@ -7,6 +7,7 @@
 \title{Individual Project: Safer Email Sending and Recovery}
 \begin{document}
 \maketitle
+\egroup % Close the group opened by this repository's jdf.cls \maketitle definition.
 \section{Introduction}
 This project improves the existing task of sending email accurately and recovering from mistakes in Outlook, rather than redesigning the entire mail client. A motivating case was a documented attempt to recall a message sent from Outlook to an external Gmail recipient; the original record reports that the message remained visible, although the retained screenshots do not independently verify final server-side status. Microsoft documents that Outlook Recall has account and organization restrictions that exclude external Gmail recipients~\cite{microsoft-recall}. Users want to prevent forgotten attachments and wrong recipients, cancel an accidental send when possible, and understand what to do after delivery. The proposed redesign addresses three stages: before Send, immediately after Send, and after delivery. This emphasis on an existing, familiar task is consistent with human-centred design: solutions should be rooted in users' goals, activities, and feedback rather than technology alone~\cite{iso-hcd}.
 
