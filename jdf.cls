@@ -239,8 +239,9 @@
 % References
 \RequirePackage[
 	bibstyle=authoryear,
+	citestyle=numeric,
 	dashed=false,
-	sorting=nyt,
+	sorting=none,
 	natbib=true,
 	maxbibnames=99
 ]{biblatex}
