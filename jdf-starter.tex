@@ -32,75 +32,36 @@ I conducted a heuristic evaluation of the New Outlook desktop application using 
 
 \section{Needfinding Results}
 \subsection{Survey findings ($N=18$)}
-Fifteen respondents (83.3\%) regularly used Gmail, eleven (61.1\%) Outlook, and three (16.7\%) Yahoo Mail (multiple selections). Eleven (61.1\%) used phone and computer equally, five (27.8\%) mainly a computer, and two (11.1\%) mainly a phone. Eleven (61.1\%) sent 0--5 emails daily, five (27.8\%) sent 6--20, and two (11.1\%) sent 21--50. Nine (50.0\%) had regretted a send a few times a year, seven (38.9\%) once or twice ever, and two (11.1\%) monthly or more.
+The survey identified common email-sending mistakes and difficulties recovering from them. Forgotten attachments were reported by 15 participants (83.3\%), accidental Reply All by 11 (61.1\%), and wrong recipients by 10 (55.6\%). These findings highlight the need for clear, contextual checks during composition.
 
 \begin{table}[htbp]
 \centering
-\caption{Reported email-sending mistakes (multiple selections; $N=18$).}
-\begin{tabular}{p{0.64\linewidth}rr}
+\caption{Key needfinding survey results ($N=18$).}
+\begin{tabular}{p{0.72\linewidth}r}
 \toprule
-Mistake & Count & Percent \\
+Finding & Respondents \\
 \midrule
-Forgot attachment & 15 & 83.3\% \\
-Typo or unfinished message & 12 & 66.7\% \\
-Accidental Reply All & 11 & 61.1\% \\
-Wrong recipient & 10 & 55.6\% \\
-Wrong attachment & 5 & 27.8\% \\
-Regretted tone & 5 & 27.8\% \\
-Sensitive information included & 2 & 11.1\% \\
+Forgot an attachment & 15 (83.3\%) \\
+Accidental Reply All & 11 (61.1\%) \\
+Wrong recipient & 10 (55.6\%) \\
+Undo Send attempted too late & 5 (27.8\%) \\
+Uncertain about cross-organization Recall & 10 (55.6\%) \\
+Sent a follow-up correction after a mistake & 13 (72.2\%) \\
+Found pre-send risk warnings helpful (4--5/5) & 14 (77.8\%) \\
+Comfortable with sensitive-content scanning (4--5/5) & 7 (38.9\%) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{Recovery behavior: Undo Send, Recall, and correction}
-\begin{table}[htbp]
-\centering
-\caption{Recovery experiences and actions ($N=18$).}
-\label{tab:recovery}
-\begin{tabular}{p{0.65\linewidth}rr}
-\toprule
-Response & Count & Percent \\
-\midrule
-Undo Send: worked & 6 & 33.3\% \\
-Undo Send: too late & 5 & 27.8\% \\
-Undo Send: never needed & 2 & 11.1\% \\
-Undo Send: unavailable or unsure & 5 & 27.8\% \\
-\midrule
-Outlook Recall: ever used & 7 & 38.9\% \\
-Outlook Recall: never used & 11 & 61.1\% \\
-Recall worked as expected: yes & 2 & 11.1\% \\
-Recall worked as expected: no & 4 & 22.2\% \\
-Recall worked as expected: unsure & 12 & 66.7\% \\
-\midrule
-External Recall: unsure & 10 & 55.6\% \\
-External Recall: believed inbox removal & 6 & 33.3\% \\
-External Recall: believed no effect & 2 & 11.1\% \\
-\midrule
-After mistake: sent correction email & 13 & 72.2\% \\
-After mistake: tried undo or recall & 10 & 55.6\% \\
-\bottomrule
-\end{tabular}
-\end{table}
+Eleven participants had tried Undo Send; five reported missing the cancellation window. Ten were unsure how Recall works across organizations, and thirteen commonly sent correction emails after mistakes. This suggests a need for visible cancellation timing, understandable Recall status, and clear recovery options.
 
-\textbf{Undo Send.} Eleven of 18 respondents (61.1\%) had tried Undo Send. Six reported that it worked, while five were too late. Two had never needed it and five said their app did not have it or they were unsure. The five too-late experiences suggest that the timing and visibility of an undo window matter, alongside the availability of the feature.
-
-\textbf{Recall and expectations.} Seven of 18 (38.9\%) had used Outlook Recall. On a separate question answered by \emph{all 18 respondents}, two said Recall worked as expected, four said it did not, and twelve were unsure. These answers cannot be treated as a Recall success rate among the seven users. When asked about recalling mail outside their organization, ten were unsure, six believed the email would be removed from the recipient's inbox, and two believed nothing would happen. These are reported beliefs, not measured technical outcomes. The heuristic evaluation's observation of difficult-to-find Recall controls and unclear feedback complements these findings.
-
-\textbf{Correction after mistakes.} Thirteen respondents (72.2\%) usually sent a follow-up correction email, while ten (55.6\%) tried undo or recall. Since this question allowed multiple selections, these groups overlap. The responses suggest that users often repair mistakes by sending a second message after the original. The proposed interface should clearly distinguish cancellation during a send delay, attempted post-delivery recall, and follow-up correction; these mechanisms are not equivalent.
-
-Fourteen (77.8\%) rated pre-send risk warnings 4 or 5 out of 5. Comfort with sensitive-content scanning was mixed: seven (38.9\%) rated 4--5, four (22.2\%) rated 3, and seven (38.9\%) rated 1--2. Twelve (66.7\%) would accept a delay of at least 30 seconds for an undo opportunity. Four substantive optional comments mentioned wrong names, missing attachments, Undo Send difficulty, and context-aware recipient suggestions. Full distributions are in Appendix A.
+Pre-send warnings received favorable ratings from fourteen participants, while seven were comfortable with sensitive-content scanning. These responses highlight the importance of user control over warnings and content inspection. Full response distributions and question details appear in Appendix A.
 
 \subsection{Heuristic evaluation findings}
-Under H1 (Visibility of System Status), the Recall command was difficult to locate under Advanced actions, and feedback from the Recall Report was difficult to interpret (recorded severity 3). Microsoft documentation identifies the Recall Report as the place to check whether a request succeeded, is pending, or failed~\parencite{microsoft-recall}. In the observed cross-organization Recall attempt, the original message remained visible to the recipient. The screenshots show the Recall command and status-report notification. Under H3 (User Control and Freedom), recipient fields were editable, and the Recall interface offered a recovery action with limited clarity about its outcome. Under H5 (Error Prevention), no contextual warning was observed for a missing attachment (severity 1), potentially unintended recipients or Reply All (severity 3), or fictional sensitive-looking content (provisional severity 4). The last severity rating lacks an independently established likelihood and impact assessment. These observations concern one tested configuration of Outlook.
+The New Outlook inspection revealed three usability issues. Under H1 (Visibility of System Status), Recall was located under Advanced actions, and its status feedback required opening a separate report (severity 3). Under H3 (User Control and Freedom), recipients could be edited and Recall could be initiated, but the recovery outcome was difficult to interpret. Under H5 (Error Prevention), the tested messages showed missing contextual warnings for attachment references (severity 1), unintended recipients or Reply All (severity 3), and fictional sensitive-looking content (provisional severity 4). Appendix B contains the inspection notes and Recall screenshots.
 
-\subsection{Three evidence-based insights}
-\textbf{1. Contextual prevention:} Forgotten attachments (15/18) and wrong recipients (10/18) were prominent self-reported problems, consistent with the missing attachment and recipient warnings observed during inspection. Consider optional attachment-reference and recipient checks.
-
-\textbf{2. Understandable recovery:} Five of eleven Undo Send users said they were too late; ten of eighteen were unsure how external Recall works, while the heuristic evaluation found unclear Recall feedback. Consider a visible configurable pre-transmission Undo countdown and clearer post-send status; these are proposed designs, not proven Outlook capabilities.
-
-\textbf{3. Safety with privacy and control:} Fourteen of eighteen found risk warnings helpful (4--5/5), but only seven of eighteen were comfortable with content scanning (4--5/5). Make any content inspection transparent and adjustable, and give users control over whether to enable it.
-
-Findings are descriptive and exploratory because of self-reporting, convenience sampling, and a single evaluator.
+\subsection{Design implications}
+The combined findings suggest three priorities: contextual pre-send checks for attachments and recipients; a visible Undo Send interval and clearer Recall status; and adjustable warnings with transparent content-inspection controls. These priorities informed the subsequent brainstorming and prototypes.
 
 \section{Initial Brainstorming Plan}
 
