@@ -428,27 +428,26 @@ Figure~\ref{fig:lowfi-sensitive} shows the sensitive-content example. This refin
 
 
 \subsubsection{B: Pending cancellation}
+Figure~\ref{fig:lowfi-undo} enlarges the pending-send state from Prototype B. After choosing an Undo Send duration and pressing Send, the sender sees a visible countdown, a pending status, and an Undo button. Ask when the message will be transmitted and what Undo does before the timer expires. Selecting Undo restores an editable draft with its recipients, text, and attachments. The delay offers recovery time while postponing routine delivery.
+
 \begin{figure}[!htbp]
 \centering
-\input{Figures/prototype_b.tex}
-\caption{B: configuration, a pending countdown, and an intact draft after Undo.}
+\includegraphics[width=0.87\linewidth,height=0.33\textheight,keepaspectratio]{B2.png}
+\caption{Prototype B: pending-send countdown and Undo control.}
 \label{fig:lowfi-undo}
 \end{figure}
-For Figure~\ref{fig:lowfi-undo}, ask the participant to choose a duration, imagine pressing Send, and cancel before expiry. Reveal the restored draft after Undo. Ask whether the message has reached the recipient and what would happen if the countdown ended. Recipients, body text, and attachments are retained; choosing Send again starts a new pending interval. Without Undo, the next conceptual state is transmission, not guaranteed successful delivery. Compare recovery time with the inconvenience of delayed ordinary messages.
-
 
 \subsubsection{C: Conditional Recall and recipient consent}
+Figure~\ref{fig:lowfi-recall} enlarges the recipient's decision screen from Prototype C. When the message exceeds five minutes after delivery or has already been opened, the sender requests permission to remove it. The recipient chooses \enquote{Allow recall} or \enquote{Keep message}. Approval permits removal from a cooperating mail service, while refusal leaves the original message available. Waiting for a response also preserves the original.
+
 \begin{figure}[!htbp]
 \centering
-\input{Figures/prototype_c.tex}
-\caption{C: two conditions permit direct Recall; the alternative path preserves the original until the recipient approves.}
+\includegraphics[width=0.87\linewidth,height=0.33\textheight,keepaspectratio]{C5.png}
+\caption{Prototype C: recipient decision to allow recall or keep the message.}
 \label{fig:lowfi-recall}
 \end{figure}
-Figure~\ref{fig:lowfi-recall} illustrates the two Recall paths. The interval starts at delivery. At five minutes or less, direct Recall requires verified unopened status. More than five minutes, an opened message, or unknown status requires consent. Eligibility is rechecked at execution and assessed per recipient. Waiting or refusal preserves the original; approval removes the service-managed copy.
 
-This new mechanism requires a cooperating mail service. Unsupported external mailboxes cannot be promised removal, and reading, screenshots, downloads, or forwarded copies cannot be reversed. Such limitations must be stated clearly as part of the outcome feedback.
-
-Evaluate three fictional cases: two minutes/unopened, eight minutes/unopened, and two minutes/opened. Ask when consent is required and what waiting or refusal means. Probe five minutes exactly and unknown read status.
+Test three fictional conditions: two minutes/unopened, eight minutes/unopened, and two minutes/opened. Ask whether direct Recall or recipient consent applies, including the five-minute boundary and unknown read status. A cooperating mail service must support removal; content already read, saved, or forwarded remains outside the proposed recovery mechanism.
 
 \subsection{First-round evaluation script and questions}\label{app:first-evaluation-questions}
 \textbf{Survey title:} Email Error Prevention and Recovery --- Prototype Evaluation Survey.
