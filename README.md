@@ -71,7 +71,7 @@ This is the canonical repository for future project edits. The prior `Individual
 - Updated `jdf-starter.tex` Section 13 and the Final Evaluation Raw Results and Statistics appendix. Do not upload the original CSV to the public repository: it contains participant names and emails.
 
 ## Source-level Final Report Audit (November 5, 2026)
-See [`FINAL_REPORT_AUDIT.md`](./FINAL_REPORT_AUDIT.md) for the 13-section assessment, completed repairs, and outstanding submission blockers. The latest `jdf-starter.tex` includes a bibliography with primary Nielsen Norman Group and Microsoft Support sources. No automatic LaTeX compilation, figure privacy audit, or independent access verification is implied by this GitHub update.
+The latest `jdf-starter.tex` includes a bibliography with primary Nielsen Norman Group and Microsoft Support sources. Report screenshots are grouped under `Figures/final/`, `Figures/lowfi/`, and `Figures/needfinding/`.
 
 ## Build and references verification
 - `references.bib` contains six cited HCI and product-documentation references, rendered through the bundled JDF class's `biblatex` configuration.
