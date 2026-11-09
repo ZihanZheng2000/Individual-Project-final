@@ -10,7 +10,7 @@
 \setcounter{topnumber}{4}
 \setcounter{totalnumber}{6}
 \emergencystretch=2em % Permit slightly more flexible line breaking before overfull text.
-% JDF loads biblatex: numeric parenthetical citations follow first-citation order; bibliography URLs remain clickable and compact.
+% JDF loads biblatex: author-year citations and an alphabetically sorted bibliography; bibliography URLs remain clickable.
 \DeclareFieldFormat{url}{\href{#1}{Online source}}
 \author{Zihan Zheng}
 \email{zzheng399@gatech.edu}
@@ -109,7 +109,6 @@ Figure~\ref{fig:prototype-a} shows three independent sequences: a missing attach
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.95\linewidth,height=0.39\textheight,keepaspectratio]{Figures/prototype_a.pdf}
-\captionsetup{margin=0pt}
 \caption{Prototype A: three independent warning-and-correction sequences.}
 \label{fig:prototype-a}
 \end{figure}
@@ -122,7 +121,6 @@ The countdown and pending label apply visibility of system status. A timer is es
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.95\linewidth,height=0.34\textheight,keepaspectratio]{Figures/prototype_b.pdf}
-\captionsetup{margin=0pt}
 \caption{Prototype B: select a duration, cancel a pending send, and return to a draft.}
 \label{fig:prototype-b}
 \end{figure}
@@ -135,7 +133,6 @@ The design addresses unclear recovery feedback through visible status and user c
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.95\linewidth,height=0.39\textheight,keepaspectratio]{Figures/prototype_c.pdf}
-\captionsetup{margin=0pt}
 \caption{Prototype C: direct Recall within five minutes while unopened; otherwise recipient approval is required.}
 \label{fig:prototype-c}
 \end{figure}
@@ -406,7 +403,6 @@ These views supplement Figures~\ref{fig:prototype-a}--\ref{fig:prototype-c}. All
 \begin{figure}[!htbp]
 \centering
 \includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=2]{Figures/prototype_a.pdf}
-\captionsetup{margin=0pt}
 \caption{A1: attach \texttt{project\_report.pdf}; the warning clears.}
 \end{figure}
 Ask why the phrase is underlined and what the participant would select. Attach file reveals the corrected draft; Ignore keeps the draft unchanged. Observe understanding and reasons and record the user's stated reasoning.
@@ -416,7 +412,6 @@ Ask why the phrase is underlined and what the participant would select. Attach f
 \begin{figure}[!htbp]
 \centering
 \includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=3]{Figures/prototype_a.pdf}
-\captionsetup{margin=0pt}
 \caption{A2: a single-name greeting and four recipients trigger a possible-mismatch prompt.}
 \end{figure}
 Ask who would receive the message and whether the greeting is intended. Review recipients supports revising the list or greeting; Ignore preserves an intentional single-person salutation. Copying others can be legitimate, so the prototype does not infer the user's intended audience.
@@ -426,7 +421,6 @@ Ask who would receive the message and whether the greeting is intended. Review r
 \begin{figure}[!htbp]
 \centering
 \includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=4]{Figures/prototype_a.pdf}
-\captionsetup{margin=0pt}
 \caption{A3: the user edits a fictional home address after a contextual caution.}
 \end{figure}
 This refinement responds to the observed lack of sensitive-content warnings and mixed comfort ratings for scanning. Proposed local rules use keywords such as \enquote{home address} and address-like patterns. They may miss unlabelled private information or flag intentional sharing. Ask what the checker examines and let the participant edit or ignore. Optional on-device processing without draft upload is a design requirement; the prototype establishes neither privacy guarantees nor reduced disclosure.
@@ -436,7 +430,6 @@ This refinement responds to the observed lack of sensitive-content warnings and 
 \begin{figure}[!htbp]
 \centering
 \input{Figures/prototype_b.tex}
-\captionsetup{margin=0pt}
 \caption{B: configuration, a pending countdown, and an intact draft after Undo.}
 \end{figure}
 Ask the participant to choose a duration, imagine pressing Send, and cancel before expiry. Reveal the restored draft after Undo. Ask whether the message has reached the recipient and what would happen if the countdown ended. Recipients, body text, and attachments are retained; choosing Send again starts a new pending interval. Without Undo, the next conceptual state is transmission, not guaranteed successful delivery. Compare recovery time with the inconvenience of delayed ordinary messages.
@@ -446,7 +439,6 @@ Ask the participant to choose a duration, imagine pressing Send, and cancel befo
 \begin{figure}[!htbp]
 \centering
 \input{Figures/prototype_c.tex}
-\captionsetup{margin=0pt}
 \caption{C: two conditions permit direct Recall; the alternative path preserves the original until the recipient approves.}
 \end{figure}
 The interval starts at delivery. At five minutes or less, direct Recall requires verified unopened status. More than five minutes, an opened message, or unknown status requires consent. Eligibility is rechecked at execution and assessed per recipient. Waiting or refusal preserves the original; approval removes the service-managed copy.
