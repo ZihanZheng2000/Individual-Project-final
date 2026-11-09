@@ -239,14 +239,37 @@
 % References
 \RequirePackage[
 	bibstyle=authoryear,
-	citestyle=authoryear,
 	dashed=false,
 	sorting=nyt,
 	natbib=true,
 	maxbibnames=99
 ]{biblatex}
 
+\DeclareFieldFormat{bibentrysetcount}{\mkbibparens{\mknumalph{#1}}}
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+
+\defbibenvironment{bibliography}
+	{\list
+		{\printtext[labelnumberwidth]{%
+			\printfield{prefixnumber}%
+			\printfield{labelnumber}}
+		}%
+		{\setlength{\labelwidth}{\labelnumberwidth}%
+		\setlength{\leftmargin}{\labelwidth}%
+		\setlength{\labelsep}{\biblabelsep}%
+		\addtolength{\leftmargin}{\labelsep}%
+		\setlength{\itemsep}{\bibitemsep}%
+		\setlength{\parsep}{\bibparsep}}%
+		\renewcommand*{\makelabel}[1]{\hss##1}}
+	{\endlist}
+	{\item}
+
 \DeclareNameAlias{sortname}{family-given}
+
+% Inline citations
+\renewcommand{\cite}[1]{\citeauthor{#1}, \citeyear{#1}}
+\renewcommand{\citep}[1]{(\citeauthor{#1}, \citeyear{#1})}
+
 
 %%
 % Metadata
