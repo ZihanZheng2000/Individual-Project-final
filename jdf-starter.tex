@@ -104,7 +104,7 @@ After sending an email, the sender selects Recall from Sent Items. In this propo
 The storyboards illustrate untested low-fidelity concepts; colors distinguish warnings, actions, and recovery.
 
 \subsection{A: Inline pre-send error detection}
-Figure~\ref{fig:prototype-a} shows three independent sequences: a missing attachment, a single-name greeting with several recipients, and potentially sensitive text. Clicking an underline opens a suggestion; users can correct or ignore it. These checks address the attachment, recipient, and sensitive-content issues documented during the heuristic evaluation. Proposed optional on-device keyword and pattern rules avoid draft upload for this check. Their accuracy and privacy implications require evaluation; Appendix~\ref{app:lowfi} provides larger views and limitations.
+Figure~\ref{fig:prototype-a} shows three independent sequences: a missing attachment, a single-name greeting with several recipients, and potentially sensitive text. Clicking an underline opens a suggestion; users can correct or ignore it. These checks apply Nielsen's error prevention heuristic by identifying possible mistakes while the draft remains editable; clickable underlines also support recognition and user control~\citep{nielsen-heuristics}. They address the attachment, recipient, and sensitive-content issues observed in needfinding. Proposed optional on-device keyword and pattern rules keep the check within the compose interface. Their accuracy and privacy implications require evaluation; Appendix~\ref{app:lowfi} provides larger views and limitations.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.95\linewidth,height=0.39\textheight,keepaspectratio]{Figures/prototype_a.pdf}
@@ -391,14 +391,13 @@ The original experiment record also contains screenshots for missing attachments
 
 \textbf{ChatGPT:} I recommend three separate low-fidelity alternatives: A, Inline Pre-Send Error Detection; B, Configurable Undo Send; and C, Recall Status and Recovery Assistant. They address prevention, temporary reversibility, and post-delivery recovery. Keeping them separate in the first iteration will allow participants to evaluate distinct interactions and trade-offs. In the next iteration, you can combine the strongest features if participant feedback supports that choice. You retain the final design decision; AI brainstorming supplies ideas and critique, not user evidence.
 
-\textit{Subsequent refinement: Prototype C evolved from a status-and-correction assistant into Conditional Recall and Recipient Consent. Its proposed five-minute and unopened conditions were part of this later design iteration.}
 
 
 \subsection{Complete low-fidelity prototype screens}
 \label{app:lowfi}
 These views supplement Figures~\ref{fig:prototype-a}--\ref{fig:prototype-c}. All message details are fictional. Reveal the next state after the participant chooses an action; no live email is accessed or sent.
 
-\subsection{A1: Missing attachment}
+\subsubsection{A1: Missing attachment}
 \begin{figure}[!htbp]
 \centering
 \includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=2]{Figures/prototype_a.pdf}
@@ -408,7 +407,7 @@ These views supplement Figures~\ref{fig:prototype-a}--\ref{fig:prototype-c}. All
 In Figure~\ref{fig:lowfi-attachment}, ask why the phrase is underlined and what the participant would select. Attach file reveals the corrected draft; Ignore keeps the draft unchanged. Observe understanding and reasons and record the user's stated reasoning.
 
 
-\subsection{A2: Greeting and recipients}
+\subsubsection{A2: Greeting and recipients}
 \begin{figure}[!htbp]
 \centering
 \includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=3]{Figures/prototype_a.pdf}
@@ -418,7 +417,7 @@ In Figure~\ref{fig:lowfi-attachment}, ask why the phrase is underlined and what 
 For Figure~\ref{fig:lowfi-recipient}, ask who would receive the message and whether the greeting is intended. Review recipients supports revising the list or greeting; Ignore preserves an intentional single-person salutation. Copying others can be legitimate, so the prototype does not infer the user's intended audience.
 
 
-\subsection{A3: Potentially sensitive text}
+\subsubsection{A3: Potentially sensitive text}
 \begin{figure}[!htbp]
 \centering
 \includegraphics[height=0.38\textheight,width=0.87\linewidth,keepaspectratio,page=4]{Figures/prototype_a.pdf}
@@ -428,7 +427,7 @@ For Figure~\ref{fig:lowfi-recipient}, ask who would receive the message and whet
 Figure~\ref{fig:lowfi-sensitive} shows the sensitive-content example. This refinement responds to the observed lack of sensitive-content warnings and mixed comfort ratings for scanning. Proposed local rules use keywords such as \enquote{home address} and address-like patterns. They may miss unlabelled private information or flag intentional sharing. Ask what the checker examines and let the participant edit or ignore. Optional on-device processing without draft upload is a design requirement; the prototype establishes neither privacy guarantees nor reduced disclosure.
 
 
-\subsection{B: Pending cancellation}
+\subsubsection{B: Pending cancellation}
 \begin{figure}[!htbp]
 \centering
 \input{Figures/prototype_b.tex}
@@ -438,7 +437,7 @@ Figure~\ref{fig:lowfi-sensitive} shows the sensitive-content example. This refin
 For Figure~\ref{fig:lowfi-undo}, ask the participant to choose a duration, imagine pressing Send, and cancel before expiry. Reveal the restored draft after Undo. Ask whether the message has reached the recipient and what would happen if the countdown ended. Recipients, body text, and attachments are retained; choosing Send again starts a new pending interval. Without Undo, the next conceptual state is transmission, not guaranteed successful delivery. Compare recovery time with the inconvenience of delayed ordinary messages.
 
 
-\subsection{C: Conditional Recall and recipient consent}
+\subsubsection{C: Conditional Recall and recipient consent}
 \begin{figure}[!htbp]
 \centering
 \input{Figures/prototype_c.tex}
