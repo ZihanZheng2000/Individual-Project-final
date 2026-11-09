@@ -32,48 +32,43 @@ I conducted a heuristic evaluation of the New Outlook desktop application using 
 
 \section{Needfinding Results}
 \subsection{Activity 1: Survey Results ($N=18$)}
-The needfinding survey was distributed through the CS6750 Ed Discussion forum and received 18 completed responses. Participants answered the planned 15-question Microsoft Forms survey covering email habits, sending mistakes, recovery experiences, and preferences for possible safeguards. All 18 responses were included in the analysis. The results offered a clear picture of the mistakes participants experienced and the actions they took afterward.
+The planned Microsoft Forms survey was distributed through the CS6750 Ed Discussion forum. It collected 18 completed responses between October 4 and October 12, 2026, covering all 15 questions on sending mistakes, recovery experiences, and preferences for safeguards. All responses were included in the descriptive analysis. Most respondents used Gmail (15/18) or Outlook (11/18), with some using both.
 
-Forgotten attachments were the most commonly reported mistake (15/18, 83.3\%). Other frequent problems included unfinished messages or typos (12/18, 66.7\%), accidental Reply All (11/18, 61.1\%), and wrong recipients (10/18, 55.6\%). These results identify several points during composition where users may benefit from contextual reminders. In particular, attachment references and recipient choices emerged as recurring sources of error.
+The leading mistakes were forgotten attachments (15/18), typos or unfinished messages (12/18), accidental Reply All (11/18), and wrong recipients (10/18). These findings show that routine composition errors affect several parts of the email workflow. Attachment references and recipient fields are therefore useful places to provide contextual feedback.
 
 \begin{table}[htbp]
 \centering
-\caption{Selected needfinding survey responses ($N=18$).}
+\caption{Selected survey findings (18 respondents; multiple selections where applicable).}
 \begin{tabular}{p{0.70\linewidth}r}
 \toprule
-Response & Count \\
+Finding & Responses \\
 \midrule
 Forgot an attachment & 15 (83.3\%) \\
 Accidental Reply All & 11 (61.1\%) \\
 Wrong recipient & 10 (55.6\%) \\
-Undo Send attempted too late & 5 (27.8\%) \\
-Unsure about Recall across organizations & 10 (55.6\%) \\
-Sent a follow-up correction after a mistake & 13 (72.2\%) \\
-Rated pre-send warnings helpful (4--5/5) & 14 (77.8\%) \\
-Comfortable with sensitive-content scanning (4--5/5) & 7 (38.9\%) \\
+Undo Send was attempted too late & 5 (27.8\%) \\
+Unsure about cross-organization Recall & 10 (55.6\%) \\
+Sent a follow-up correction email & 13 (72.2\%) \\
+Rated risk warnings helpful (4--5/5) & 14 (77.8\%) \\
+Comfortable with content scanning (4--5/5) & 7 (38.9\%) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The recovery questions revealed further difficulties. Eleven participants had tried Undo Send, and five of these users reported missing the available cancellation window. Seven participants had used Outlook Recall. When asked about recalling an email sent outside their organization, ten participants were unsure what would happen. Thirteen reported sending a follow-up correction email after a mistake. These responses indicate that users frequently rely on additional communication to resolve errors and would benefit from clearer information about the available recovery actions.
+Eleven respondents had tried Undo Send, and five said they missed the cancellation window. Seven had used Outlook Recall, while ten respondents were unsure what Recall would do across organizations. Thirteen commonly sent a correction email after an error. These results revealed difficulties in recovering from mistakes and understanding what happens after sending. Twelve respondents would accept an Undo delay of at least 30 seconds, supporting exploration of a visible, configurable countdown.
 
-Participants also expressed interest in preventive feedback. Fourteen rated pre-send risk warnings as helpful, while seven reported high comfort with sensitive-content scanning. Twelve were willing to accept an Undo Send delay of at least 30 seconds. The results suggest that visible warnings, control over content inspection, and configurable cancellation timing deserve further exploration. Appendix A contains the summarized distributions for all 15 survey questions and the themes from optional responses.
+Fourteen respondents found pre-send risk warnings helpful, while seven expressed high comfort with scanning message content. The open-ended responses also mentioned missing attachments, recipient-name errors, and frustration with sending delays. These findings informed the investigation of optional contextual checks. Appendix~\ref{app:needfinding-survey} provides all question-level distributions and summarized comments.
 
 \subsection{Activity 2: Heuristic Evaluation Results}
-I inspected the installed Outlook desktop application using Nielsen's H1 (Visibility of System Status), H3 (User Control and Freedom), and H5 (Error Prevention). The inspection covered email composition, recipient editing, sending, and Recall. It identified examples of existing usability support and areas where the interface created difficulty.
+The planned inspection was completed in the installed Outlook desktop application. Four scenarios examined missing attachments, recipients and Reply All, Recall/Resend, and fictional sensitive-looking content. Findings were recorded against Nielsen's H1 (Visibility of System Status), H3 (User Control and Freedom), and H5 (Error Prevention).
 
-\textbf{H1: Visibility of System Status.} The Recall action produced a notification linking to a separate Recall Report. The original evaluation recorded that Outlook communicated status and the possible successful, failed, or pending outcomes, while the results were difficult to understand. The observed cross-organization Recall attempt left the original message visible to the recipient. The inspection assigned severity 3 to the discoverability and feedback issue.
+\textbf{H1 -- Visibility of System Status.} Outlook displayed a Recall request notification and provided information about pending, successful, and failed outcomes through a separate Recall Report. The evaluator found the result difficult to understand (severity 3).
 
-\textbf{H3: User Control and Freedom.} Outlook displayed recipients clearly, allowed them to be edited, and provided a Recall action under Advanced actions. The original evaluation found Recall and Resend difficult to locate and recovery options difficult to understand. The Recall workflow also exposed a usability problem: the sender had difficulty understanding the status and consequences of the requested action. This finding suggests an opportunity to make recovery choices and their outcomes more understandable.
+\textbf{H3 -- User Control and Freedom.} Recipient addresses were visible and editable, and the sent-message menu provided Recall and Resend actions. The evaluator found these actions difficult to locate and recovery choices difficult to understand (severity 3).
 
-\textbf{H5: Error Prevention.} The original experiment record documented three contextual warning gaps. A draft referring to a missing attachment proceeded through sending (severity 1). Potentially unintended recipients or Reply All received no contextual warning in the tested interaction (severity 3). A draft containing fictional sensitive-looking content also produced no warning (provisional severity 4). The results suggest opportunities for targeted checks during email composition. Appendix B summarizes the original four scenario records and retains two Recall screenshots.
+\textbf{H5 -- Error Prevention.} In the tested scenarios, Outlook displayed no contextual warning for a missing attachment (severity 1), unintended recipients or Reply All (severity 3), or fictional sensitive-looking content (recorded severity 4). The last score is provisional because the original observation field was incomplete. Appendix~\ref{app:needfinding-heuristic} records the detailed outcomes and screenshots.
 
-\textbf{Three insights from needfinding.}
-\textbf{First,} mistakes involving routine composition details were especially common. Fifteen participants reported missing attachments and ten reported sending to wrong recipients, while the heuristic evaluation showed gaps in contextual warnings. This indicates a practical need for checks tied to the draft's content and recipients.
-
-\textbf{Second,} recovery difficulty includes uncertainty about the state of a message. Five Undo Send users reported acting too late, ten survey participants were unsure about cross-organization Recall, and the Outlook inspection identified difficult-to-interpret Recall feedback. Users need visible cancellation timing and clearer status information after sending.
-
-\textbf{Third,} users value error prevention while wanting control over how warnings operate. Fourteen participants rated risk warnings helpful, while seven were comfortable with sensitive-content scanning. The contrast suggests that transparency and user-adjustable checks are important design considerations. Together, these insights informed the subsequent brainstorming and prototype alternatives.
+\textbf{Three insights from both activities.} \textbf{First,} routine composition errors warrant targeted feedback: 15 respondents forgot attachments and 10 reported wrong recipients, matching the warning gaps observed in Outlook. \textbf{Second,} recovery depends on understandable timing and feedback: five Undo Send users acted too late, ten respondents were uncertain about external Recall, and the evaluator struggled to interpret Recall results. \textbf{Third,} users value prevention with control over inspection: 14 rated risk warnings helpful, while seven were comfortable with sensitive-content scanning. These insights motivated the subsequent brainstorming of contextual warnings, visible cancellation timing, and clearer recovery status.
 
 \section{Initial Brainstorming Plan}
 
@@ -313,7 +308,9 @@ A stronger follow-up study would recruit participants to execute standardized in
 
 \appendix
 
-\section{Needfinding Survey: Questions and Aggregate Results}
+\section{Needfinding Activity Results and Evidence}
+\subsection{Activity 1: Survey Results}\label{app:needfinding-survey}
+
 The Microsoft Forms export contains 18 completed responses and respondent-identifying fields. This survey was \emph{not anonymous}. The public appendix reports aggregate counts and nonidentifying themes, not respondent names, email addresses, or individual-level records. The following summarizes all 15 questions in their original order; multi-select totals can exceed 18.
 \begin{enumerate}
 \item Email apps (multi-select): Gmail 15, Outlook 11, Yahoo Mail 3.
@@ -334,7 +331,7 @@ The Microsoft Forms export contains 18 completed responses and respondent-identi
 \end{enumerate}
 Survey findings are reported as aggregate counts; identifiable original responses are not included in this appendix.
 
-\section{Heuristic Evaluation: Protocol and Evidence}
+\subsection{Activity 2: Heuristic Evaluation Results}\label{app:needfinding-heuristic}
 The original experiment record documents four Outlook scenarios evaluated against H1 Visibility of System Status, H3 User Control and Freedom, and H5 Error Prevention. Its severity scale spans 0 (no usability problem), 1 (cosmetic), 2 (minor), 3 (major), and 4 (usability catastrophe).
 \begin{itemize}
 \item \textbf{H1 -- Visibility of System Status:} The original evaluation recorded Yes for current Recall status and success/failure/pending information, and No for ease of understanding. The Recall notification directed the sender to a separate status report. Recorded severity: 3.
